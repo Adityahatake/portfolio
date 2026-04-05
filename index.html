@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aditya Daksh | AI/ML Engineer Portfolio</title>
+    <meta name="description"
+        content="Aditya Daksh - AI/ML Engineer specializing in Machine Learning, Computer Vision, and NLP. Building intelligent systems that bridge the gap between research and reality.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+
+<body class="antialiased selection:bg-cyan-500 selection:text-black">
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot hidden md:block"></div>
+    <div class="cursor-outline hidden md:block"></div>
+
+    <!-- Mecha Flower Transition Container -->
+    <div class="mecha-flower-container" id="mechaFlower"></div>
+
+    <!-- Neural Network Background -->
+    <canvas id="neural-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass px-6 py-4 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="text-2xl font-bold font-['Space_Grotesk'] gradient-text cursor-pointer"
+                onclick="triggerMechaFlower('hero')">
+                ADITYA<span class="text-white">DAKSH</span>
+            </div>
+
+            <div class="hidden md:flex space-x-8">
+                <a href="#about"
+                    class="nav-link text-sm uppercase tracking-widest hover:text-cyan-400 transition-colors"
+                    onclick="triggerMechaFlower('about')">About</a>
+                <a href="#skills"
+                    class="nav-link text-sm uppercase tracking-widest hover:text-cyan-400 transition-colors"
+                    onclick="triggerMechaFlower('skills')">Skills</a>
+                <a href="#projects"
+                    class="nav-link text-sm uppercase tracking-widest hover:text-cyan-400 transition-colors"
+                    onclick="triggerMechaFlower('projects')">Projects</a>
+                <a href="#experience"
+                    class="nav-link text-sm uppercase tracking-widest hover:text-cyan-400 transition-colors"
+                    onclick="triggerMechaFlower('experience')">Experience</a>
+                <a href="#contact"
+                    class="nav-link text-sm uppercase tracking-widest hover:text-cyan-400 transition-colors"
+                    onclick="triggerMechaFlower('contact')">Contact</a>
+            </div>
+
+            <button class="md:hidden text-white" onclick="toggleMobileMenu()">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden mt-4 space-y-4" id="mobileMenu">
+            <a href="#about" class="block text-sm uppercase tracking-widest">About</a>
+            <a href="#skills" class="block text-sm uppercase tracking-widest">Skills</a>
+            <a href="#projects" class="block text-sm uppercase tracking-widest">Projects</a>
+            <a href="#contact" class="block text-sm uppercase tracking-widest">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden px-6">
+        <div class="max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-12 items-center relative z-10">
+            <div class="space-y-8">
+                <div
+                    class="inline-block px-4 py-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-400 text-sm font-mono mb-4">
+                    <span class="typing" id="typingText">AI/ML Engineer</span>
+                </div>
+
+                <h1 class="text-5xl md:text-7xl font-bold leading-tight glitch" data-text="ADITYA DAKSH">
+                    ADITYA<br>
+                    <span class="gradient-text"></span>
+                </h1>
+
+                <p class="text-xl text-gray-400 max-w-lg leading-relaxed">
+                    Computer Science Engineering student specializing in <span class="text-cyan-400">Machine
+                        Learning</span>,
+                    <span class="text-purple-400">Computer Vision</span>, and
+                    <span class="text-pink-400">NLP</span>. Building intelligent systems that bridge the gap between
+                    research and reality.
+                </p>
+
+                <div class="flex flex-wrap gap-4">
+                    <button onclick="triggerMechaFlower('projects')"
+                        class="group relative px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full font-semibold overflow-hidden transition-transform hover:scale-105">
+                        <span class="relative z-10">View Projects</span>
+                        <div
+                            class="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity">
+                        </div>
+                    </button>
+
+                    <button onclick="triggerMechaFlower('contact')"
+                        class="px-8 py-4 border border-cyan-500/50 rounded-full font-semibold hover:bg-cyan-500/10 transition-all hover:border-cyan-400">
+                        Get In Touch
+                    </button>
+                </div>
+
+                <div class="flex gap-6 pt-4">
+                    <a href="https://github.com/Adityahatake" target="_blank"
+                        class="text-gray-400 hover:text-cyan-400 transition-colors transform hover:scale-110">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/aditya-daksh-288032251" target="_blank"
+                        class="text-gray-400 hover:text-cyan-400 transition-colors transform hover:scale-110">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                        </svg>
+                    </a>
+                    <a href="mailto:adityadaskh567@gmail.com"
+                        class="text-gray-400 hover:text-cyan-400 transition-colors transform hover:scale-110">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                    </a>
+                    <a href="https://x.com/AdityaDaksh8" target="_blank"
+                        class="text-gray-400 hover:text-cyan-400 transition-colors transform hover:scale-110">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="relative hidden md:block">
+                <div id="hero-3d-container" class="w-full h-[600px]"></div>
+                <div class="absolute inset-0 bg-gradient-to-r from-[#050508] via-transparent to-transparent"></div>
+            </div>
+        </div>
+
+        <!-- Binary Rain Effect -->
+        <div id="binaryRain" class="absolute inset-0 pointer-events-none opacity-20"></div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-32 px-6 relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="reveal">
+                <h2 class="text-4xl md:text-5xl font-bold mb-16 text-center">
+                    About <span class="gradient-text">Me</span>
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="reveal space-y-6">
+                    <div class="glass p-8 rounded-2xl tilt-card" id="aboutCard">
+                        <div class="tilt-content space-y-4">
+                            <h3 class="text-2xl font-bold text-cyan-400">AI/ML Engineer in the Making</h3>
+                            <p class="text-gray-300 leading-relaxed">
+                                I'm a passionate Computer Science Engineering student at <span
+                                    class="text-purple-400 font-semibold">ABES Institute of Technology</span>,
+                                specializing in Artificial Intelligence. My journey in tech is driven by a fascination
+                                with creating intelligent systems that can perceive,
+                                learn, and adapt.
+                            </p>
+                            <p class="text-gray-300 leading-relaxed">
+                                With hands-on experience in <span class="text-cyan-400">deep learning frameworks</span>
+                                like PyTorch and TensorFlow,
+                                I've built real-time systems using <span class="text-pink-400">YOLO</span> for computer
+                                vision and
+                                <span class="text-purple-400">BERT</span> for natural language processing.
+                            </p>
+                            <div class="flex gap-4 pt-4">
+                                <div class="text-center">
+                                    <div class="text-3xl font-bold gradient-text">3+</div>
+                                    <div class="text-sm text-gray-400">Years Experience</div>
+                                </div>
+                                <div class="w-px bg-gray-700"></div>
+                                <div class="text-center">
+                                    <div class="text-3xl font-bold gradient-text">10+</div>
+                                    <div class="text-sm text-gray-400">Projects</div>
+                                </div>
+                                <div class="w-px bg-gray-700"></div>
+                                <div class="text-center">
+                                    <div class="text-3xl font-bold gradient-text">5+</div>
+                                    <div class="text-sm text-gray-400">Certifications</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reveal relative">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="space-y-4 mt-8">
+                            <div class="glass p-6 rounded-xl border border-cyan-500/20 hover:border-cyan-500/50 transition-all float"
+                                style="animation-delay: 0s;">
+                                <div class="text-3xl mb-2">🧠</div>
+                                <h4 class="font-bold text-cyan-400">Deep Learning</h4>
+                                <p class="text-sm text-gray-400">Neural Networks & AI</p>
+                            </div>
+                            <div class="glass p-6 rounded-xl border border-purple-500/20 hover:border-purple-500/50 transition-all float"
+                                style="animation-delay: 1s;">
+                                <div class="text-3xl mb-2">👁️</div>
+                                <h4 class="font-bold text-purple-400">Computer Vision</h4>
+                                <p class="text-sm text-gray-400">YOLO & OpenCV</p>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="glass p-6 rounded-xl border border-pink-500/20 hover:border-pink-500/50 transition-all float"
+                                style="animation-delay: 2s;">
+                                <div class="text-3xl mb-2">💬</div>
+                                <h4 class="font-bold text-pink-400">NLP</h4>
+                                <p class="text-sm text-gray-400">BERT & Transformers</p>
+                            </div>
+                            <div class="glass p-6 rounded-xl border border-blue-500/20 hover:border-blue-500/50 transition-all float"
+                                style="animation-delay: 3s;">
+                                <div class="text-3xl mb-2">🚀</div>
+                                <h4 class="font-bold text-blue-400">Deployment</h4>
+                                <p class="text-sm text-gray-400">Streamlit & Cloud</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-32 px-6 relative bg-[#0a0a0f]">
+        <div class="max-w-7xl mx-auto">
+            <div class="reveal text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                    Technical <span class="gradient-text">Arsenal</span>
+                </h2>
+                <p class="text-gray-400">Technologies I wield to build intelligent systems</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Programming Languages -->
+                <div class="reveal glass p-8 rounded-2xl gradient-border">
+                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
+                        <span class="w-2 h-2 bg-cyan-400 rounded-full"></span>
+                        Programming Languages
+                    </h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm text-gray-300">Python</span>
+                                <span class="text-sm text-cyan-400">95%</span>
+                            </div>
+                            <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
+                                <div class="skill-fill h-full bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full"
+                                    style="--width: 95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm text-gray-300">Java</span>
+                                <span class="text-sm text-cyan-400">85%</span>
+                            </div>
+                            <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
+                                <div class="skill-fill h-full bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full"
+                                    style="--width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ML/AI -->
+                <div class="reveal glass p-8 rounded-2xl gradient-border">
+                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
+                        <span class="w-2 h-2 bg-purple-400 rounded-full"></span>
+                        ML/AI Frameworks
+                    </h3>
+                    <div class="space-y-3">
+                        <div
+                            class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
+                            <span class="text-purple-400">▹</span>
+                            <span>PyTorch & TensorFlow</span>
+                        </div>
+                        <div
+                            class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
+                            <span class="text-purple-400">▹</span>
+                            <span>Scikit-learn & Pandas</span>
+                        </div>
+                        <div
+                            class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
+                            <span class="text-purple-400">▹</span>
+                            <span>NumPy & Matplotlib</span>
+                        </div>
+                        <div
+                            class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
+                            <span class="text-purple-400">▹</span>
+                            <span>Transformer Architectures</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Computer Vision -->
+                <div class="reveal glass p-8 rounded-2xl gradient-border">
+                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
+                        <span class="w-2 h-2 bg-pink-400 rounded-full"></span>
+                        Computer Vision
+                    </h3>
+                    <div class="space-y-3">
+                        <div
+                            class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
+                            <span class="text-pink-400">▹</span>
+                            <span>YOLO (v8/v11)</span>
+                        </div>
+                        <div
+                            class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
+                            <span class="text-pink-400">▹</span>
+                            <span>OpenCV</span>
+                        </div>
+                        <div
+                            class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
+                            <span class="text-pink-400">▹</span>
+                            <span>Image Processing</span>
+                        </div>
+                        <div
+                            class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
+                            <span class="text-pink-400">▹</span>
+                            <span>Object Detection</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Web Technologies -->
+                <div class="reveal glass p-8 rounded-2xl gradient-border">
+                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
+                        <span class="w-2 h-2 bg-blue-400 rounded-full"></span>
+                        Web Technologies
+                    </h3>
+                    <div class="space-y-3">
+                        <div
+                            class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
+                            <span class="text-blue-400">▹</span>
+                            <span>React.js & JavaScript</span>
+                        </div>
+                        <div
+                            class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
+                            <span class="text-blue-400">▹</span>
+                            <span>HTML5 & CSS3</span>
+                        </div>
+                        <div
+                            class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
+                            <span class="text-blue-400">▹</span>
+                            <span>Streamlit</span>
+                        </div>
+                        <div
+                            class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
+                            <span class="text-blue-400">▹</span>
+                            <span>REST APIs</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Databases -->
+                <div class="reveal glass p-8 rounded-2xl gradient-border">
+                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
+                        <span class="w-2 h-2 bg-green-400 rounded-full"></span>
+                        Databases
+                    </h3>
+                    <div class="space-y-3">
+                        <div
+                            class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
+                            <span class="text-green-400">▹</span>
+                            <span>MySQL</span>
+                        </div>
+                        <div
+                            class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
+                            <span class="text-green-400">▹</span>
+                            <span>MongoDB</span>
+                        </div>
+                        <div
+                            class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
+                            <span class="text-green-400">▹</span>
+                            <span>Redis</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tools -->
+                <div class="reveal glass p-8 rounded-2xl gradient-border">
+                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
+                        <span class="w-2 h-2 bg-yellow-400 rounded-full"></span>
+                        Tools & Platforms
+                    </h3>
+                    <div class="space-y-3">
+                        <div
+                            class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
+                            <span class="text-yellow-400">▹</span>
+                            <span>Git & GitHub</span>
+                        </div>
+                        <div
+                            class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
+                            <span class="text-yellow-400">▹</span>
+                            <span>Linux & Bash</span>
+                        </div>
+                        <div
+                            class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
+                            <span class="text-yellow-400">▹</span>
+                            <span>Jupyter Notebook</span>
+                        </div>
+                        <div
+                            class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
+                            <span class="text-yellow-400">▹</span>
+                            <span>Postman</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-32 px-6 relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="reveal text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                    Featured <span class="gradient-text">Projects</span>
+                </h2>
+                <p class="text-gray-400">Real-world applications of AI/ML</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Project 1: Adaptive Traffic Signal -->
+                <div class="reveal project-card glass rounded-2xl overflow-hidden group">
+                    <div class="h-64 bg-gradient-to-br from-cyan-900/50 to-blue-900/50 relative overflow-hidden">
+                        <div class="absolute inset-0">
+                            <img src="Assets/Traffic.png" alt="Traffic Signal Project"
+                                class="w-full h-full object-cover opacity-70 group-hover:scale-110 transition-transform duration-500"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+
+                            <!-- Fallback emoji -->
+                            <div class="absolute inset-0 hidden items-center justify-center text-6xl opacity-50">
+                                🚦
+                            </div>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#12121a] to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <div class="flex gap-2 mb-2">
+                                <span
+                                    class="px-3 py-1 text-xs rounded-full bg-cyan-500/20 text-cyan-400 border border-cyan-500/30">Computer
+                                    Vision</span>
+                                <span
+                                    class="px-3 py-1 text-xs rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30">IoT</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-3 group-hover:text-cyan-400 transition-colors">Adaptive Traffic
+                            Signal Control</h3>
+                        <p class="text-gray-400 mb-6 leading-relaxed">
+                            Real-time vehicle detection system using fine-tuned YOLOv11 to identify vehicles (Car,
+                            Truck, Bike, Ambulance, Bus).
+                            Implemented SUMO simulations for adaptive traffic signal control, reducing congestion
+                            through intelligent timing adjustments.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="text-xs px-3 py-1 rounded-full bg-white/5 text-gray-300">Python</span>
+                            <span class="text-xs px-3 py-1 rounded-full bg-white/5 text-gray-300">PyTorch</span>
+                            <span class="text-xs px-3 py-1 rounded-full bg-white/5 text-gray-300">OpenCV</span>
+                            <span class="text-xs px-3 py-1 rounded-full bg-white/5 text-gray-300">SUMO</span>
+                        </div>
+                        <div class="flex gap-4">
+                            <button class="flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors">
+                                <span>View Demo</span>
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                </svg>
+                            </button>
+                            <a href="https://github.com/pic-road/vehicle_detection" target="_blank"
+                                class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+                                <span>GitHub</span>
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: BiasSpectra -->
+                <div class="reveal project-card glass rounded-2xl overflow-hidden group">
+                    <div class="h-64 bg-gradient-to-br from-purple-900/50 to-pink-900/50 relative overflow-hidden">
+
+                        <div class="absolute inset-0">
+                            <img src="Assets/Bias.png" alt="News Project"
+                                class="w-full h-full object-cover opacity-70 group-hover:scale-110 transition-transform duration-500"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+
+                            <!-- Fallback emoji -->
+                            <div
+                                class="absolute inset-0 hidden items-center justify-center text-6xl opacity-50 group-hover:scale-110 transition-transform duration-500">
+                                📰
+                            </div>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#12121a] to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <div class="flex gap-2 mb-2">
+                                <span
+                                    class="px-3 py-1 text-xs rounded-full bg-purple-500/20 text-purple-400 border border-purple-500/30">NLP</span>
+                                <span
+                                    class="px-3 py-1 text-xs rounded-full bg-pink-500/20 text-pink-400 border border-pink-500/30">BERT</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-3 group-hover:text-purple-400 transition-colors">BiasSpectra
+                        </h3>
+                        <p class="text-gray-400 mb-6 leading-relaxed">
+                            ML-based Political Bias Detection System for Indian news using BERT and rule-based
+                            filtering.
+                            Features a two-stage inference pipeline to filter non-political content before bias
+                            classification,
+                            deployed as an interactive Streamlit app with real-time headline analysis.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="text-xs px-3 py-1 rounded-full bg-white/5 text-gray-300">Python</span>
+                            <span class="text-xs px-3 py-1 rounded-full bg-white/5 text-gray-300">BERT</span>
+                            <span class="text-xs px-3 py-1 rounded-full bg-white/5 text-gray-300">Transformers</span>
+                            <span class="text-xs px-3 py-1 rounded-full bg-white/5 text-gray-300">Streamlit</span>
+                        </div>
+                        <div class="flex gap-4">
+                            <button
+                                class="flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-colors">
+                                <span>Live App</span>
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                </svg>
+                            </button>
+                            <a href="https://github.com/Adityahatake/bias-spectra" target="_blank"
+                                class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+                                <span>GitHub</span>
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: Daily Expense Tracker -->
+                <div class="reveal project-card glass rounded-2xl overflow-hidden group">
+                    <div class="h-64 bg-gradient-to-br from-green-900/50 to-emerald-900/50 relative overflow-hidden">
+                        <div class="absolute inset-0">
+                            <img src="Assets/Expense.png" alt="Daily Expense Tracker"
+                                class="w-full h-full object-cover opacity-70 group-hover:scale-110 transition-transform duration-500"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+
+                            <!-- Fallback emoji -->
+                            <div class="absolute inset-0 hidden items-center justify-center text-6xl opacity-50 group-hover:scale-110 transition-transform duration-500">
+                                💸
+                            </div>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#12121a] to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <div class="flex gap-2 mb-2">
+                                <span class="px-3 py-1 text-xs rounded-full bg-green-500/20 text-green-400 border border-green-500/30">React</span>
+                                <span class="px-3 py-1 text-xs rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">TypeScript</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-3 group-hover:text-green-400 transition-colors">Daily Expense Tracker</h3>
+                        <p class="text-gray-400 mb-6 leading-relaxed">
+                            A local expense tracking application structured to keep user interactions and sessions clean. Enables users to manage daily finances efficiently without pre-populated presets.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="text-xs px-3 py-1 rounded-full bg-white/5 text-gray-300">TypeScript</span>
+                            <span class="text-xs px-3 py-1 rounded-full bg-white/5 text-gray-300">React</span>
+                            <span class="text-xs px-3 py-1 rounded-full bg-white/5 text-gray-300">CSS</span>
+                        </div>
+                        <div class="flex gap-4">
+                            <button class="flex items-center gap-2 text-green-400 hover:text-green-300 transition-colors cursor-not-allowed opacity-50" disabled>
+                                <span>Local App</span>
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                </svg>
+                            </button>
+                            <a href="https://github.com/Adityahatake/Daily_Expense_Tracker" target="_blank"
+                                class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+                                <span>GitHub</span>
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: Secure-JWT-Refresher -->
+                <div class="reveal project-card glass rounded-2xl overflow-hidden group">
+                    <div class="h-64 bg-gradient-to-br from-indigo-900/50 to-blue-900/50 relative overflow-hidden">
+                        <div class="absolute inset-0">
+                            <img src="Assets/Jwt.png" alt="Secure JWT Refresher"
+                                class="w-full h-full object-cover opacity-70 group-hover:scale-110 transition-transform duration-500"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+
+                            <!-- Fallback emoji -->
+                            <div class="absolute inset-0 hidden items-center justify-center text-6xl opacity-50 group-hover:scale-110 transition-transform duration-500">
+                                🔒
+                            </div>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#12121a] to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <div class="flex gap-2 mb-2">
+                                <span class="px-3 py-1 text-xs rounded-full bg-indigo-500/20 text-indigo-400 border border-indigo-500/30">Backend</span>
+                                <span class="px-3 py-1 text-xs rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30">Auth</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-3 group-hover:text-indigo-400 transition-colors">Secure-JWT-Refresher</h3>
+                        <p class="text-gray-400 mb-6 leading-relaxed">
+                            A secure authentication system featuring JWTs, Silent Refresh Tokens, and automatic session management built entirely using .NET 8 and React.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="text-xs px-3 py-1 rounded-full bg-white/5 text-gray-300">C#</span>
+                            <span class="text-xs px-3 py-1 rounded-full bg-white/5 text-gray-300">.NET 8</span>
+                            <span class="text-xs px-3 py-1 rounded-full bg-white/5 text-gray-300">React</span>
+                            <span class="text-xs px-3 py-1 rounded-full bg-white/5 text-gray-300">JWT</span>
+                        </div>
+                        <div class="flex gap-4">
+                            <button class="flex items-center gap-2 text-indigo-400 hover:text-indigo-300 transition-colors cursor-not-allowed opacity-50" disabled>
+                                <span>No Demo</span>
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                </svg>
+                            </button>
+                            <a href="https://github.com/Adityahatake/Secure-JWT-Refresher" target="_blank"
+                                class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+                                <span>GitHub</span>
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a href="https://github.com/Adityahatake?tab=repositories">
+            <div class="reveal mt-12 text-center">
+                <button class="px-8 py-3 border border-cyan-500/50 rounded-full hover:bg-cyan-500/10 transition-all">
+                    View All Projects →
+                </button>
+            </div>
+        </a>
+    </section>
+
+    <!-- Experience & Education Section -->
+    <section id="experience" class="py-32 px-6 relative bg-[#0a0a0f]">
+        <div class="max-w-7xl mx-auto">
+            <div class="reveal text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                    Journey & <span class="gradient-text">Achievements</span>
+                </h2>
+            </div>
+            
+            <!-- Work Experience row -->
+            <div class="mb-16">
+                <div class="reveal space-y-8">
+                    <h3 class="text-2xl font-bold text-green-400 mb-6">Work Experience</h3>
+
+                    <div class="glass p-6 rounded-xl border-l-4 border-green-500 relative overflow-hidden group hover:translate-x-2 transition-transform">
+                        <div class="absolute inset-0 bg-gradient-to-r from-green-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        <div class="relative">
+                            <div class="flex justify-between items-start flex-wrap gap-2 mb-2">
+                                <h4 class="text-xl font-bold">Web Developer (Volunteer)</h4>
+                                <span class="text-green-400 text-sm font-semibold whitespace-nowrap">Dec 2024 - Jan 2025</span>
+                            </div>
+                            <p class="text-cyan-400 mb-4">Ganga Library INC (Remote)</p>
+                            <ul class="text-gray-300 text-sm space-y-2 list-disc list-inside">
+                                <li>Maintained and optimized a Nobel Prize archive website with 1000+ profiles, ensuring fast load times (&lt;2s).</li>
+                                <li>Implemented SEO optimizations, boosting website traffic by 20% within a month.</li>
+                                <li>Restructured UI components, leading to a 30% better accessibility score.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="glass p-6 rounded-xl border-l-4 border-teal-500 relative overflow-hidden group hover:translate-x-2 transition-transform">
+                        <div class="absolute inset-0 bg-gradient-to-r from-teal-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        <div class="relative">
+                            <div class="flex justify-between items-start flex-wrap gap-2 mb-2">
+                                <h4 class="text-xl font-bold">Web Developer (Volunteer)</h4>
+                                <span class="text-teal-400 text-sm font-semibold whitespace-nowrap">Nov 2024 - Dec 2024</span>
+                            </div>
+                            <p class="text-cyan-400 mb-4">Stand Up to Our Perpetrators (Remote)</p>
+                            <ul class="text-gray-300 text-sm space-y-2 list-disc list-inside">
+                                <li>Redesigned the charity event website, improving user engagement by 35%.</li>
+                                <li>Enhanced front-end performance, reducing page load time by 50% using lazy loading and asset minification.</li>
+                                <li>Integrated a donation system, increasing contribution rates by 25%.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Education -->
+                <div class="reveal space-y-8">
+                    <h3 class="text-2xl font-bold text-cyan-400 mb-6">Education</h3>
+
+                    <div
+                        class="glass p-6 rounded-xl border-l-4 border-cyan-500 relative overflow-hidden group hover:translate-x-2 transition-transform">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                        </div>
+                        <div class="relative">
+                            <h4 class="text-xl font-bold mb-2">B.Tech in Computer Science (AI)</h4>
+                            <p class="text-cyan-400 mb-1">ABES Institute of Technology, Ghaziabad</p>
+                            <p class="text-sm text-gray-400 mb-2">Expected Graduation: August 2026</p>
+                            <p class="text-gray-300 text-sm">Specializing in Artificial Intelligence, Machine Learning,
+                                and Deep Learning with hands-on project experience.</p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="glass p-6 rounded-xl border-l-4 border-purple-500 relative overflow-hidden group hover:translate-x-2 transition-transform">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                        </div>
+                        <div class="relative">
+                            <h4 class="text-xl font-bold mb-2">Intermediate (SMKPD)</h4>
+                            <p class="text-purple-400 mb-1">2021-2022</p>
+                            <p class="text-gray-300 text-sm">Completed higher secondary education with focus on Physics,
+                                Chemistry, and Mathematics.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certifications -->
+                <div class="reveal space-y-8">
+                    <h3 class="text-2xl font-bold text-purple-400 mb-6">Certifications</h3>
+
+                    <div
+                        class="glass p-6 rounded-xl border-l-4 border-pink-500 relative overflow-hidden group hover:translate-x-2 transition-transform">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-r from-pink-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                        </div>
+                        <div class="relative flex items-start gap-4">
+                            <div
+                                class="w-12 h-12 rounded-full bg-pink-500/20 flex items-center justify-center flex-shrink-0">
+                                <span class="text-2xl">☕</span>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-1">Java Programming</h4>
+                                <p class="text-pink-400 text-sm mb-2">Soft Pro</p>
+                                <p class="text-gray-400 text-sm">Comprehensive Java programming certification covering
+                                    OOP concepts and advanced features.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="glass p-6 rounded-xl border-l-4 border-yellow-500 relative overflow-hidden group hover:translate-x-2 transition-transform">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-r from-yellow-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                        </div>
+                        <div class="relative flex items-start gap-4">
+                            <div
+                                class="w-12 h-12 rounded-full bg-yellow-500/20 flex items-center justify-center flex-shrink-0">
+                                <span class="text-2xl">🎮</span>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-1">ML Training with GI Ventures</h4>
+                                <p class="text-yellow-400 text-sm mb-2">NVIDIA Partner</p>
+                                <p class="text-gray-400 text-sm">Specialized training in Machine Learning with NVIDIA
+                                    technologies and GPU acceleration.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="glass p-6 rounded-xl border-l-4 border-blue-500 relative overflow-hidden group hover:translate-x-2 transition-transform">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                        </div>
+                        <div class="relative flex items-start gap-4">
+                            <div
+                                class="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center flex-shrink-0">
+                                <span class="text-2xl">🏆</span>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-1">TCS CodeVita 2024</h4>
+                                <p class="text-blue-400 text-sm mb-2">Global Coding Contest</p>
+                                <p class="text-gray-400 text-sm">Participated in TCS's prestigious global coding
+                                    competition, showcasing problem-solving skills.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-32 px-6 relative">
+        <div class="max-w-4xl mx-auto">
+            <div class="reveal text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                    Let's <span class="gradient-text">Connect</span>
+                </h2>
+                <p class="text-gray-400">Have a project in mind? Let's build something intelligent together.</p>
+            </div>
+
+            <div class="reveal glass p-8 md:p-12 rounded-3xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-cyan-500/20 rounded-full blur-3xl -mr-32 -mt-32"></div>
+                <div class="absolute bottom-0 left-0 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl -ml-32 -mb-32">
+                </div>
+
+                <form id="contact-form" class="relative space-y-6" onsubmit="handleSubmit(event)">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-gray-300">Name</label>
+                            <input type="text" name="name"
+                                class="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 input-glow outline-none transition-all text-white placeholder-gray-500"
+                                placeholder="John Doe" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-gray-300">Email</label>
+                            <input type="email" name="email"
+                                class="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 input-glow outline-none transition-all text-white placeholder-gray-500"
+                                placeholder="john@example.com" required>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium mb-2 text-gray-300">Subject</label>
+                        <input type="text" name="subject"
+                            class="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 input-glow outline-none transition-all text-white placeholder-gray-500"
+                            placeholder="Project Collaboration" required>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium mb-2 text-gray-300">Message</label>
+                        <textarea rows="5" name="message"
+                            class="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 input-glow outline-none transition-all text-white placeholder-gray-500 resize-none"
+                            placeholder="Tell me about your project..." required></textarea>
+                    </div>
+
+                    <button type="submit"
+                        class="w-full py-4 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-lg font-semibold text-white hover:shadow-lg hover:shadow-cyan-500/25 transition-all transform hover:scale-[1.02]">
+                        Send Message 🚀
+                    </button>
+                </form>
+
+                <div
+                    class="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-12 h-12 rounded-full bg-gradient-to-br from-cyan-500 to-purple-600 flex items-center justify-center text-xl font-bold">
+                            AD
+                        </div>
+                        <div>
+                            <div class="font-bold">Aditya Daksh</div>
+                            <div class="text-sm text-gray-400">AI/ML Engineer</div>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-6 text-gray-400">
+                        <a href="tel:+918923966049"
+                            class="hover:text-cyan-400 transition-colors flex items-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                            </svg>
+                            <span class="hidden md:inline">+91 89239 66049</span>
+                        </a>
+                        <a href="mailto:adityadaskh567@gmail.com"
+                            class="hover:text-cyan-400 transition-colors flex items-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                            <span class="hidden md:inline">adityadaskh567@gmail.com</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-6 border-t border-white/10 bg-[#050508]">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="text-gray-500 text-sm">
+                © 2024 Aditya Daksh. Crafted with 💙
+            </div>
+            <div class="flex gap-6 text-sm text-gray-500">
+                <a href="https://github.com/Adityahatake" target="_blank"
+                    class="hover:text-cyan-400 transition-colors">GitHub</a>
+                <a href="https://www.linkedin.com/in/aditya-daksh-288032251" target="_blank"
+                    class="hover:text-cyan-400 transition-colors">LinkedIn</a>
+                <a href="https://x.com/AdityaDaksh8" target="_blank"
+                    class="hover:text-cyan-400 transition-colors">Twitter (X)</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
