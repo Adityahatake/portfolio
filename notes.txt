@@ -1,0 +1,10 @@
+# Notes on Assumptions and Trade-offs
+
+## Assumptions
+- It is assumed that the project is a static front-end web application (HTML, CSS, JavaScript) that does not require a complex build process or backend server to run.
+- File paths for assets (images, icons) assume the structure remains intact, with the "Assets" directory located at the same level as the main HTML file.
+- The standard layout assumes the end-user has a modern web browser that supports current web standards, including CSS Flexbox/Grid and standard ES6 JavaScript.
+
+## Trade-offs
+- Used vanilla HTML/CSS/JavaScript without relying on large frameworks (like React or Next.js) to keep the project lightweight and simple. This trades off some of the powerful state management and component reusability of a robust framework for faster initial load times and no build-step complexity.
+- Responsiveness was achieved through standard media queries instead of a CSS framework (like Tailwind CSS or Bootstrap). While this offers maximum customizability without additional bloat, development might be slightly more manual.
