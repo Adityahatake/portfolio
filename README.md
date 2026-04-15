@@ -53,4 +53,4 @@ Visit the live website: **[https://aditya-portfolio567.netlify.app/](https://adi
 ## 📝 License
 
 Feel free to use this project as inspiration for your own portfolio!
->>>>>>> 7f177b0 (project sec_fix)
+
