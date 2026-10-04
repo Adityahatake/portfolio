@@ -1,25 +1,32 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <link rel="icon" type="image/png" href="Assets/Fevi2.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aditya Daksh | AI/ML Engineer Portfolio</title>
+    <title>Aditya Daksh | AI Engineer — Generative AI, Agentic AI & LLM Applications</title>
     <meta name="description"
-        content="Aditya Daksh - AI/ML Engineer specializing in Machine Learning, Computer Vision, and NLP. Building intelligent systems that bridge the gap between research and reality.">
+        content="Aditya Daksh — AI Engineer specializing in Generative AI, Agentic AI, LangChain, LangGraph, RAG, and LLM-based applications. Building intelligent agent workflows and AI-powered systems.">
+    <meta name="keywords"
+        content="AI Engineer, Generative AI, Agentic AI, LLM, LangChain, LangGraph, RAG, Machine Learning, NLP, Computer Vision, Python, Portfolio">
+    <meta property="og:title" content="Aditya Daksh | AI Engineer">
+    <meta property="og:description"
+        content="AI Engineer specializing in Generative AI, Agentic AI, and LLM-based applications.">
+    <meta property="og:type" content="website">
+    <meta name="robots" content="index, follow">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <link
-        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 
-<body class="antialiased selection:bg-cyan-500 selection:text-black">
+<body class="antialiased">
 
     <!-- Custom Cursor -->
     <div class="cursor-dot hidden md:block"></div>
@@ -36,105 +43,116 @@
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <div class="text-2xl font-bold font-['Space_Grotesk'] gradient-text cursor-pointer"
                 onclick="triggerMechaFlower('hero')">
-                ADITYA<span class="text-white">DAKSH</span>
+                AD<span class="text-white" style="-webkit-text-fill-color: white;">.</span>
             </div>
 
-            <div class="hidden md:flex space-x-8">
+            <div class="hidden md:flex items-center space-x-8">
                 <a href="#about"
-                    class="nav-link text-sm uppercase tracking-widest hover:text-cyan-400 transition-colors"
+                    class="nav-link text-sm uppercase tracking-widest text-[var(--text-secondary)] hover:text-[var(--primary)] transition-colors"
                     onclick="triggerMechaFlower('about')">About</a>
                 <a href="#skills"
-                    class="nav-link text-sm uppercase tracking-widest hover:text-cyan-400 transition-colors"
+                    class="nav-link text-sm uppercase tracking-widest text-[var(--text-secondary)] hover:text-[var(--primary)] transition-colors"
                     onclick="triggerMechaFlower('skills')">Skills</a>
                 <a href="#projects"
-                    class="nav-link text-sm uppercase tracking-widest hover:text-cyan-400 transition-colors"
+                    class="nav-link text-sm uppercase tracking-widest text-[var(--text-secondary)] hover:text-[var(--primary)] transition-colors"
                     onclick="triggerMechaFlower('projects')">Projects</a>
                 <a href="#experience"
-                    class="nav-link text-sm uppercase tracking-widest hover:text-cyan-400 transition-colors"
+                    class="nav-link text-sm uppercase tracking-widest text-[var(--text-secondary)] hover:text-[var(--primary)] transition-colors"
                     onclick="triggerMechaFlower('experience')">Experience</a>
                 <a href="#contact"
-                    class="nav-link text-sm uppercase tracking-widest hover:text-cyan-400 transition-colors"
+                    class="nav-link text-sm uppercase tracking-widest text-[var(--text-secondary)] hover:text-[var(--primary)] transition-colors"
                     onclick="triggerMechaFlower('contact')">Contact</a>
+                <a href="Aditya_Daksh_AI_Engineer.pdf" download class="btn-resume">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                    Resume
+                </a>
             </div>
 
-            <button class="md:hidden text-white" onclick="toggleMobileMenu()">
+            <button class="md:hidden text-white" onclick="toggleMobileMenu()" id="mobileMenuBtn"
+                aria-label="Toggle menu">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
             </button>
         </div>
 
         <!-- Mobile Menu -->
-        <div class="md:hidden hidden mt-4 space-y-4" id="mobileMenu">
-            <a href="#about" class="block text-sm uppercase tracking-widest">About</a>
-            <a href="#skills" class="block text-sm uppercase tracking-widest">Skills</a>
-            <a href="#projects" class="block text-sm uppercase tracking-widest">Projects</a>
-            <a href="#contact" class="block text-sm uppercase tracking-widest">Contact</a>
+        <div class="md:hidden hidden mt-4 space-y-4 pb-4" id="mobileMenu">
+            <a href="#about" class="block text-sm uppercase tracking-widest py-2">About</a>
+            <a href="#skills" class="block text-sm uppercase tracking-widest py-2">Skills</a>
+            <a href="#projects" class="block text-sm uppercase tracking-widest py-2">Projects</a>
+            <a href="#experience" class="block text-sm uppercase tracking-widest py-2">Experience</a>
+            <a href="#contact" class="block text-sm uppercase tracking-widest py-2">Contact</a>
+            <a href="Aditya_Daksh_AI_Engineer.pdf" download
+                class="inline-flex items-center gap-2 text-sm text-[var(--secondary-light)] py-2">
+                📄 Download Resume
+            </a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- ============================================
+         HERO SECTION
+         ============================================ -->
     <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden px-6">
         <div class="max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-12 items-center relative z-10">
-            <div class="space-y-8">
-                <div
-                    class="inline-block px-4 py-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-400 text-sm font-mono mb-4">
-                    <span class="typing" id="typingText">AI/ML Engineer</span>
+            <div>
+                <div class="hero-tagline">
+                    <span class="typing" id="typingText">AI Engineer</span>
                 </div>
 
-                <h1 class="text-5xl md:text-7xl font-bold leading-tight glitch" data-text="ADITYA DAKSH">
+                <h1 class="hero-title glitch" data-text="ADITYA">
                     ADITYA<br>
-                    <span class="gradient-text"></span>
+                    <span class="gradient-text">DAKSH</span>
                 </h1>
 
-                <p class="text-xl text-gray-400 max-w-lg leading-relaxed">
-                    Computer Science Engineering student specializing in <span class="text-cyan-400">Machine
-                        Learning</span>,
-                    <span class="text-purple-400">Computer Vision</span>, and
-                    <span class="text-pink-400">NLP</span>. Building intelligent systems that bridge the gap between
-                    research and reality.
+                <p class="hero-description">
+                    AI Engineer specializing in <span style="color: var(--primary)">Generative AI</span>,
+                    <span style="color: var(--secondary-light)">Agentic AI</span>, and
+                    <span style="color: var(--accent)">LLM Applications</span>. Building intelligent agent
+                    workflows and AI-powered systems with LangChain, LangGraph, RAG & Vector Databases.
                 </p>
 
-                <div class="flex flex-wrap gap-4">
-                    <button onclick="triggerMechaFlower('projects')"
-                        class="group relative px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full font-semibold overflow-hidden transition-transform hover:scale-105">
-                        <span class="relative z-10">View Projects</span>
-                        <div
-                            class="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity">
-                        </div>
+                <div class="hero-cta-group">
+                    <button onclick="triggerMechaFlower('projects')" class="btn-primary">
+                        <span>View Projects</span>
+                        <svg class="w-4 h-4 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
                     </button>
 
-                    <button onclick="triggerMechaFlower('contact')"
-                        class="px-8 py-4 border border-cyan-500/50 rounded-full font-semibold hover:bg-cyan-500/10 transition-all hover:border-cyan-400">
+                    <button onclick="triggerMechaFlower('contact')" class="btn-secondary">
                         Get In Touch
                     </button>
                 </div>
 
-                <div class="flex gap-6 pt-4">
-                    <a href="https://github.com/Adityahatake" target="_blank"
-                        class="text-gray-400 hover:text-cyan-400 transition-colors transform hover:scale-110">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <div class="hero-social-group">
+                    <a href="https://github.com/Adityahatake" target="_blank" class="social-link"
+                        aria-label="GitHub">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                             <path
                                 d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
                         </svg>
                     </a>
-                    <a href="https://www.linkedin.com/in/aditya-daksh-288032251" target="_blank"
-                        class="text-gray-400 hover:text-cyan-400 transition-colors transform hover:scale-110">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <a href="https://www.linkedin.com/in/aditya-daksh-288032251" target="_blank" class="social-link"
+                        aria-label="LinkedIn">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                             <path
                                 d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
                         </svg>
                     </a>
-                    <a href="mailto:adityadaskh567@gmail.com"
-                        class="text-gray-400 hover:text-cyan-400 transition-colors transform hover:scale-110">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <a href="mailto:adityadaksh567@gmail.com" class="social-link" aria-label="Email">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                         </svg>
                     </a>
-                    <a href="https://x.com/AdityaDaksh8" target="_blank"
-                        class="text-gray-400 hover:text-cyan-400 transition-colors transform hover:scale-110">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <a href="https://x.com/AdityaDaksh8" target="_blank" class="social-link" aria-label="X (Twitter)">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                             <path
                                 d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                         </svg>
@@ -152,82 +170,99 @@
         <div id="binaryRain" class="absolute inset-0 pointer-events-none opacity-20"></div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-32 px-6 relative">
+    <!-- ============================================
+         ABOUT SECTION
+         ============================================ -->
+    <section id="about" class="py-28 px-6 relative">
         <div class="max-w-7xl mx-auto">
-            <div class="reveal">
-                <h2 class="text-4xl md:text-5xl font-bold mb-16 text-center">
-                    About <span class="gradient-text">Me</span>
+            <div class="reveal text-center mb-16">
+                <div class="section-badge mx-auto w-fit">About Me</div>
+                <h2 class="text-4xl md:text-5xl font-bold">
+                    Who I <span class="gradient-text">Am</span>
                 </h2>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-16 items-center">
-                <div class="reveal space-y-6">
-                    <div class="glass p-8 rounded-2xl tilt-card" id="aboutCard">
-                        <div class="tilt-content space-y-4">
-                            <h3 class="text-2xl font-bold text-cyan-400">AI/ML Engineer in the Making</h3>
-                            <p class="text-gray-300 leading-relaxed">
-                                I'm a passionate Computer Science Engineering student at <span
-                                    class="text-purple-400 font-semibold">ABES Institute of Technology</span>,
-                                specializing in Artificial Intelligence. My journey in tech is driven by a fascination
-                                with creating intelligent systems that can perceive,
-                                learn, and adapt.
+            <div class="grid md:grid-cols-2 gap-12 items-start">
+                <!-- About Text -->
+                <div class="reveal">
+                    <div class="about-card tilt-card" id="aboutCard">
+                        <div class="tilt-content space-y-5">
+                            <h3 class="text-2xl font-bold" style="color: var(--primary);">AI Engineer | GenAI & Agentic AI</h3>
+                            <p class="text-[var(--text-secondary)] leading-relaxed">
+                                AI/ML-focused Computer Science Engineering student with hands-on experience in
+                                <span style="color: var(--primary); font-weight:600;">Generative AI</span>,
+                                <span style="color: var(--secondary-light); font-weight:600;">Agentic AI</span>, and
+                                <span style="color: var(--accent); font-weight:600;">LLM-based applications</span>.
                             </p>
-                            <p class="text-gray-300 leading-relaxed">
-                                With hands-on experience in <span class="text-cyan-400">deep learning frameworks</span>
-                                like PyTorch and TensorFlow,
-                                I've built real-time systems using <span class="text-pink-400">YOLO</span> for computer
-                                vision and
-                                <span class="text-purple-400">BERT</span> for natural language processing.
+                            <p class="text-[var(--text-secondary)] leading-relaxed">
+                                Skilled in Python, Prompt Engineering, OpenAI, LangChain, LangGraph, RAG, Embeddings,
+                                and Vector Databases. Background in Machine Learning, NLP, and Computer Vision, including
+                                production deployment on <span style="color: var(--emerald); font-weight:600;">Docker</span> and
+                                <span style="color: var(--amber); font-weight:600;">NVIDIA DGX A100</span> infrastructure.
                             </p>
-                            <div class="flex gap-4 pt-4">
-                                <div class="text-center">
-                                    <div class="text-3xl font-bold gradient-text">3+</div>
-                                    <div class="text-sm text-gray-400">Years Experience</div>
+
+                            <!-- Stats Row -->
+                            <div class="grid grid-cols-3 gap-3 pt-4">
+                                <div class="stat-card">
+                                    <div class="stat-number gradient-text">2+</div>
+                                    <div class="stat-label">Years Exp</div>
                                 </div>
-                                <div class="w-px bg-gray-700"></div>
-                                <div class="text-center">
-                                    <div class="text-3xl font-bold gradient-text">10+</div>
-                                    <div class="text-sm text-gray-400">Projects</div>
+                                <div class="stat-card">
+                                    <div class="stat-number gradient-text">10+</div>
+                                    <div class="stat-label">Projects</div>
                                 </div>
-                                <div class="w-px bg-gray-700"></div>
-                                <div class="text-center">
-                                    <div class="text-3xl font-bold gradient-text">5+</div>
-                                    <div class="text-sm text-gray-400">Certifications</div>
+                                <div class="stat-card">
+                                    <div class="stat-number gradient-text">5+</div>
+                                    <div class="stat-label">Certifications</div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="reveal relative">
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="space-y-4 mt-8">
-                            <div class="glass p-6 rounded-xl border border-cyan-500/20 hover:border-cyan-500/50 transition-all float"
-                                style="animation-delay: 0s;">
-                                <div class="text-3xl mb-2">🧠</div>
-                                <h4 class="font-bold text-cyan-400">Deep Learning</h4>
-                                <p class="text-sm text-gray-400">Neural Networks & AI</p>
-                            </div>
-                            <div class="glass p-6 rounded-xl border border-purple-500/20 hover:border-purple-500/50 transition-all float"
-                                style="animation-delay: 1s;">
-                                <div class="text-3xl mb-2">👁️</div>
-                                <h4 class="font-bold text-purple-400">Computer Vision</h4>
-                                <p class="text-sm text-gray-400">YOLO & OpenCV</p>
+                <!-- Focus Areas Grid -->
+                <div class="reveal">
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="focus-chip float" style="animation-delay: 0s;">
+                            <span class="chip-icon">🤖</span>
+                            <div>
+                                <div class="font-semibold text-sm" style="color: var(--primary);">Generative AI</div>
+                                <div class="text-xs text-[var(--text-muted)]">LLMs & Agents</div>
                             </div>
                         </div>
-                        <div class="space-y-4">
-                            <div class="glass p-6 rounded-xl border border-pink-500/20 hover:border-pink-500/50 transition-all float"
-                                style="animation-delay: 2s;">
-                                <div class="text-3xl mb-2">💬</div>
-                                <h4 class="font-bold text-pink-400">NLP</h4>
-                                <p class="text-sm text-gray-400">BERT & Transformers</p>
+                        <div class="focus-chip float" style="animation-delay: 1s;">
+                            <span class="chip-icon">🧠</span>
+                            <div>
+                                <div class="font-semibold text-sm" style="color: var(--secondary-light);">Agentic AI</div>
+                                <div class="text-xs text-[var(--text-muted)]">LangChain & LangGraph</div>
                             </div>
-                            <div class="glass p-6 rounded-xl border border-blue-500/20 hover:border-blue-500/50 transition-all float"
-                                style="animation-delay: 3s;">
-                                <div class="text-3xl mb-2">🚀</div>
-                                <h4 class="font-bold text-blue-400">Deployment</h4>
-                                <p class="text-sm text-gray-400">Streamlit & Cloud</p>
+                        </div>
+                        <div class="focus-chip float" style="animation-delay: 2s;">
+                            <span class="chip-icon">🔍</span>
+                            <div>
+                                <div class="font-semibold text-sm" style="color: var(--accent);">RAG Systems</div>
+                                <div class="text-xs text-[var(--text-muted)]">Embeddings & Vectors</div>
+                            </div>
+                        </div>
+                        <div class="focus-chip float" style="animation-delay: 1.5s;">
+                            <span class="chip-icon">👁️</span>
+                            <div>
+                                <div class="font-semibold text-sm" style="color: var(--emerald);">Computer Vision</div>
+                                <div class="text-xs text-[var(--text-muted)]">YOLO & OpenCV</div>
+                            </div>
+                        </div>
+                        <div class="focus-chip float" style="animation-delay: 0.5s;">
+                            <span class="chip-icon">💬</span>
+                            <div>
+                                <div class="font-semibold text-sm" style="color: #f472b6;">NLP</div>
+                                <div class="text-xs text-[var(--text-muted)]">BERT & Transformers</div>
+                            </div>
+                        </div>
+                        <div class="focus-chip float" style="animation-delay: 2.5s;">
+                            <span class="chip-icon">🚀</span>
+                            <div>
+                                <div class="font-semibold text-sm" style="color: #60a5fa;">Deployment</div>
+                                <div class="text-xs text-[var(--text-muted)]">Docker & DGX A100</div>
                             </div>
                         </div>
                     </div>
@@ -236,575 +271,487 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="py-32 px-6 relative bg-[#0a0a0f]">
+    <!-- ============================================
+         SKILLS SECTION
+         ============================================ -->
+    <section id="skills" class="py-28 px-6 relative" style="background: var(--dark);">
         <div class="max-w-7xl mx-auto">
             <div class="reveal text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                <div class="section-badge mx-auto w-fit">Technical Skills</div>
+                <h2 class="text-4xl md:text-5xl font-bold mb-3">
                     Technical <span class="gradient-text">Arsenal</span>
                 </h2>
-                <p class="text-gray-400">Technologies I wield to build intelligent systems</p>
+                <p class="text-[var(--text-muted)] max-w-lg mx-auto">Technologies I use to build intelligent AI systems and applications</p>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+
+                <!-- Generative AI & Agents -->
+                <div class="reveal skill-category-card">
+                    <div class="skill-category-header">
+                        <div class="skill-category-icon" style="background: rgba(0, 212, 255, 0.1);">🤖</div>
+                        <h3 class="skill-category-title" style="color: var(--primary);">Generative AI & Agents</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag cyan">Generative AI</span>
+                        <span class="skill-tag cyan">Agentic AI</span>
+                        <span class="skill-tag cyan">AI Agents</span>
+                        <span class="skill-tag cyan">LLMs</span>
+                        <span class="skill-tag cyan">Prompt Engineering</span>
+                        <span class="skill-tag cyan">OpenAI</span>
+                        <span class="skill-tag cyan">LangChain</span>
+                        <span class="skill-tag cyan">LangGraph</span>
+                        <span class="skill-tag cyan">RAG</span>
+                        <span class="skill-tag cyan">Embeddings</span>
+                        <span class="skill-tag cyan">Vector DBs</span>
+                    </div>
+                </div>
+
+                <!-- ML & AI Frameworks -->
+                <div class="reveal skill-category-card">
+                    <div class="skill-category-header">
+                        <div class="skill-category-icon" style="background: rgba(124, 58, 237, 0.1);">🧠</div>
+                        <h3 class="skill-category-title" style="color: var(--secondary-light);">ML & AI Frameworks</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag purple">Machine Learning</span>
+                        <span class="skill-tag purple">Deep Learning</span>
+                        <span class="skill-tag purple">PyTorch</span>
+                        <span class="skill-tag purple">TensorFlow</span>
+                        <span class="skill-tag purple">Scikit-learn</span>
+                        <span class="skill-tag purple">Transformers</span>
+                        <span class="skill-tag purple">NLP</span>
+                        <span class="skill-tag purple">Computer Vision</span>
+                    </div>
+                </div>
+
                 <!-- Programming Languages -->
-                <div class="reveal glass p-8 rounded-2xl gradient-border">
-                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
-                        <span class="w-2 h-2 bg-cyan-400 rounded-full"></span>
-                        Programming Languages
-                    </h3>
-                    <div class="space-y-4">
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="text-sm text-gray-300">Python</span>
-                                <span class="text-sm text-cyan-400">95%</span>
-                            </div>
-                            <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
-                                <div class="skill-fill h-full bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full"
-                                    style="--width: 95%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="text-sm text-gray-300">Java</span>
-                                <span class="text-sm text-cyan-400">85%</span>
-                            </div>
-                            <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
-                                <div class="skill-fill h-full bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full"
-                                    style="--width: 85%"></div>
-                            </div>
-                        </div>
+                <div class="reveal skill-category-card">
+                    <div class="skill-category-header">
+                        <div class="skill-category-icon" style="background: rgba(244, 114, 182, 0.1);">💻</div>
+                        <h3 class="skill-category-title" style="color: var(--accent);">Programming</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag pink">Python</span>
+                        <span class="skill-tag pink">SQL</span>
+                        <span class="skill-tag pink">Java</span>
+                        <span class="skill-tag pink">JavaScript</span>
                     </div>
                 </div>
 
-                <!-- ML/AI -->
-                <div class="reveal glass p-8 rounded-2xl gradient-border">
-                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
-                        <span class="w-2 h-2 bg-purple-400 rounded-full"></span>
-                        ML/AI Frameworks
-                    </h3>
-                    <div class="space-y-3">
-                        <div
-                            class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
-                            <span class="text-purple-400">▹</span>
-                            <span>PyTorch & TensorFlow</span>
-                        </div>
-                        <div
-                            class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
-                            <span class="text-purple-400">▹</span>
-                            <span>Scikit-learn & Pandas</span>
-                        </div>
-                        <div
-                            class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
-                            <span class="text-purple-400">▹</span>
-                            <span>NumPy & Matplotlib</span>
-                        </div>
-                        <div
-                            class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
-                            <span class="text-purple-400">▹</span>
-                            <span>Transformer Architectures</span>
-                        </div>
+                <!-- Data Science Tools -->
+                <div class="reveal skill-category-card">
+                    <div class="skill-category-header">
+                        <div class="skill-category-icon" style="background: rgba(16, 185, 129, 0.1);">📊</div>
+                        <h3 class="skill-category-title" style="color: var(--emerald);">Data Science</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag emerald">NumPy</span>
+                        <span class="skill-tag emerald">Pandas</span>
+                        <span class="skill-tag emerald">Matplotlib</span>
                     </div>
                 </div>
 
-                <!-- Computer Vision -->
-                <div class="reveal glass p-8 rounded-2xl gradient-border">
-                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
-                        <span class="w-2 h-2 bg-pink-400 rounded-full"></span>
-                        Computer Vision
-                    </h3>
-                    <div class="space-y-3">
-                        <div
-                            class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
-                            <span class="text-pink-400">▹</span>
-                            <span>YOLO (v8/v11)</span>
-                        </div>
-                        <div
-                            class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
-                            <span class="text-pink-400">▹</span>
-                            <span>OpenCV</span>
-                        </div>
-                        <div
-                            class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
-                            <span class="text-pink-400">▹</span>
-                            <span>Image Processing</span>
-                        </div>
-                        <div
-                            class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
-                            <span class="text-pink-400">▹</span>
-                            <span>Object Detection</span>
-                        </div>
+                <!-- Deployment & Infra -->
+                <div class="reveal skill-category-card">
+                    <div class="skill-category-header">
+                        <div class="skill-category-icon" style="background: rgba(245, 158, 11, 0.1);">⚡</div>
+                        <h3 class="skill-category-title" style="color: var(--amber);">Deployment & Infra</h3>
                     </div>
-                </div>
-
-                <!-- Web Technologies -->
-                <div class="reveal glass p-8 rounded-2xl gradient-border">
-                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
-                        <span class="w-2 h-2 bg-blue-400 rounded-full"></span>
-                        Web Technologies
-                    </h3>
-                    <div class="space-y-3">
-                        <div
-                            class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
-                            <span class="text-blue-400">▹</span>
-                            <span>React.js & JavaScript</span>
-                        </div>
-                        <div
-                            class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
-                            <span class="text-blue-400">▹</span>
-                            <span>HTML5 & CSS3</span>
-                        </div>
-                        <div
-                            class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
-                            <span class="text-blue-400">▹</span>
-                            <span>Streamlit</span>
-                        </div>
-                        <div
-                            class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
-                            <span class="text-blue-400">▹</span>
-                            <span>REST APIs</span>
-                        </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag amber">REST APIs</span>
+                        <span class="skill-tag amber">JSON</span>
+                        <span class="skill-tag amber">FastAPI</span>
+                        <span class="skill-tag amber">Docker</span>
+                        <span class="skill-tag amber">NVIDIA DGX A100</span>
+                        <span class="skill-tag amber">Linux</span>
                     </div>
                 </div>
 
                 <!-- Databases -->
-                <div class="reveal glass p-8 rounded-2xl gradient-border">
-                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
-                        <span class="w-2 h-2 bg-green-400 rounded-full"></span>
-                        Databases
-                    </h3>
-                    <div class="space-y-3">
-                        <div
-                            class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
-                            <span class="text-green-400">▹</span>
-                            <span>MySQL</span>
-                        </div>
-                        <div
-                            class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
-                            <span class="text-green-400">▹</span>
-                            <span>MongoDB</span>
-                        </div>
-                        <div
-                            class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
-                            <span class="text-green-400">▹</span>
-                            <span>Redis</span>
-                        </div>
+                <div class="reveal skill-category-card">
+                    <div class="skill-category-header">
+                        <div class="skill-category-icon" style="background: rgba(96, 165, 250, 0.1);">🗄️</div>
+                        <h3 class="skill-category-title" style="color: #60a5fa;">Databases</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag blue">SQL</span>
+                        <span class="skill-tag blue">MySQL</span>
+                        <span class="skill-tag blue">MongoDB</span>
+                        <span class="skill-tag blue">Redis</span>
+                        <span class="skill-tag blue">Vector DBs</span>
                     </div>
                 </div>
 
-                <!-- Tools -->
-                <div class="reveal glass p-8 rounded-2xl gradient-border">
-                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
-                        <span class="w-2 h-2 bg-yellow-400 rounded-full"></span>
-                        Tools & Platforms
-                    </h3>
-                    <div class="space-y-3">
-                        <div
-                            class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
-                            <span class="text-yellow-400">▹</span>
-                            <span>Git & GitHub</span>
-                        </div>
-                        <div
-                            class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
-                            <span class="text-yellow-400">▹</span>
-                            <span>Linux & Bash</span>
-                        </div>
-                        <div
-                            class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
-                            <span class="text-yellow-400">▹</span>
-                            <span>Jupyter Notebook</span>
-                        </div>
-                        <div
-                            class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
-                            <span class="text-yellow-400">▹</span>
-                            <span>Postman</span>
-                        </div>
+                <!-- Web Technologies -->
+                <div class="reveal skill-category-card">
+                    <div class="skill-category-header">
+                        <div class="skill-category-icon" style="background: rgba(244, 114, 182, 0.1);">🌐</div>
+                        <h3 class="skill-category-title" style="color: #f472b6;">Web Technologies</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag pink">HTML</span>
+                        <span class="skill-tag pink">CSS</span>
+                        <span class="skill-tag pink">JavaScript</span>
+                        <span class="skill-tag pink">React.js</span>
+                    </div>
+                </div>
+
+                <!-- Tools & Core CS -->
+                <div class="reveal skill-category-card">
+                    <div class="skill-category-header">
+                        <div class="skill-category-icon" style="background: rgba(16, 185, 129, 0.1);">🛠️</div>
+                        <h3 class="skill-category-title" style="color: var(--emerald);">Tools & Core CS</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag emerald">Git & GitHub</span>
+                        <span class="skill-tag emerald">Postman</span>
+                        <span class="skill-tag emerald">VS Code</span>
+                        <span class="skill-tag emerald">Jupyter</span>
+                        <span class="skill-tag emerald">DSA</span>
+                        <span class="skill-tag emerald">OOP</span>
+                        <span class="skill-tag emerald">DBMS</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="py-32 px-6 relative">
+    <!-- ============================================
+         PROJECTS SECTION
+         ============================================ -->
+    <section id="projects" class="py-28 px-6 relative">
         <div class="max-w-7xl mx-auto">
             <div class="reveal text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                <div class="section-badge mx-auto w-fit">Portfolio</div>
+                <h2 class="text-4xl md:text-5xl font-bold mb-3">
                     Featured <span class="gradient-text">Projects</span>
                 </h2>
-                <p class="text-gray-400">Real-world applications of AI/ML</p>
+                <p class="text-[var(--text-muted)] max-w-lg mx-auto">Real-world AI/ML applications with measurable impact</p>
             </div>
 
             <div class="grid md:grid-cols-2 gap-8">
-                <!-- Project 1: Adaptive Traffic Signal -->
-                <div class="reveal project-card glass rounded-2xl overflow-hidden group">
-                    <div class="h-64 bg-gradient-to-br from-cyan-900/50 to-blue-900/50 relative overflow-hidden">
-                        <div class="absolute inset-0">
-                            <img src="Assets/Traffic.png" alt="Traffic Signal Project"
-                                class="w-full h-full object-cover opacity-70 group-hover:scale-110 transition-transform duration-500"
-                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
 
-                            <!-- Fallback emoji -->
-                            <div class="absolute inset-0 hidden items-center justify-center text-6xl opacity-50">
-                                🚦
-                            </div>
-                        </div>
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#12121a] to-transparent"></div>
-                        <div class="absolute bottom-4 left-4 right-4">
-                            <div class="flex gap-2 mb-2">
-                                <span
-                                    class="px-3 py-1 text-xs rounded-full bg-cyan-500/20 text-cyan-400 border border-cyan-500/30">Computer
-                                    Vision</span>
-                                <span
-                                    class="px-3 py-1 text-xs rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30">IoT</span>
-                            </div>
+                <!-- Project 1: BiasSpectra -->
+                <div class="reveal project-card group">
+                    <div class="project-image-wrapper bg-gradient-to-br from-purple-900/50 to-pink-900/50">
+                        <img src="Assets/Bais_spectra.png" alt="BiasSpectra — Political Bias Detection"
+                            onerror="this.style.display='none';">
+                        <div class="project-overlay"></div>
+                        <div class="project-tags-overlay">
+                            <span class="project-tag"
+                                style="background: rgba(124, 58, 237, 0.2); color: var(--secondary-light); border: 1px solid rgba(124, 58, 237, 0.3);">NLP</span>
+                            <span class="project-tag"
+                                style="background: rgba(244, 114, 182, 0.2); color: var(--accent); border: 1px solid rgba(244, 114, 182, 0.3);">BERT</span>
                         </div>
                     </div>
-                    <div class="p-8">
-                        <h3 class="text-2xl font-bold mb-3 group-hover:text-cyan-400 transition-colors">Adaptive Traffic
-                            Signal Control</h3>
-                        <p class="text-gray-400 mb-6 leading-relaxed">
-                            Real-time vehicle detection system using fine-tuned YOLOv11 to identify vehicles (Car,
-                            Truck, Bike, Ambulance, Bus).
-                            Implemented SUMO simulations for adaptive traffic signal control, reducing congestion
-                            through intelligent timing adjustments.
+                    <div class="project-body">
+                        <h3 class="project-title group-hover:text-[var(--secondary-light)]">BiasSpectra</h3>
+                        <p class="project-description">
+                            Built an NLP-based political bias detection system for Indian news using BERT and rule-based
+                            filtering, with a two-stage pipeline that screens out non-political content before classification.
+                            Deployed as an interactive Streamlit app for real-time bias analysis.
                         </p>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="text-xs px-3 py-1 rounded-full bg-white/5 text-gray-300">Python</span>
-                            <span class="text-xs px-3 py-1 rounded-full bg-white/5 text-gray-300">PyTorch</span>
-                            <span class="text-xs px-3 py-1 rounded-full bg-white/5 text-gray-300">OpenCV</span>
-                            <span class="text-xs px-3 py-1 rounded-full bg-white/5 text-gray-300">SUMO</span>
+                        <div class="project-tech-stack">
+                            <span class="project-tech">Python</span>
+                            <span class="project-tech">BERT</span>
+                            <span class="project-tech">Transformers</span>
+                            <span class="project-tech">HuggingFace</span>
+                            <span class="project-tech">Streamlit</span>
+                            <span class="project-tech">NLP</span>
                         </div>
-                        <div class="flex gap-4">
-                            <button class="flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors">
-                                <!-- <span>View Demo</span>
+                        <div class="project-links">
+                            <a href="https://huggingface.co/spaces/dakshaditya/bias-spectra" target="_blank"
+                                class="project-link" style="color: var(--secondary-light);">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                                </svg> -->
-                            </button>
-                            <a href="https://github.com/pic-road/vehicle_detection" target="_blank"
-                                class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
-                                <span>GitHub</span>
+                                </svg>
+                                Live App
+                            </a>
+                            <a href="https://github.com/Adityahatake/bias-spectra" target="_blank"
+                                class="project-link" style="color: var(--text-muted);">
                                 <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                                     <path
                                         d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
                                 </svg>
+                                GitHub
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Project 2: BiasSpectra -->
-                <div class="reveal project-card glass rounded-2xl overflow-hidden group">
-                    <div class="h-64 bg-gradient-to-br from-purple-900/50 to-pink-900/50 relative overflow-hidden">
-
-                        <div class="absolute inset-0">
-                            <img src="Assets/Bais_spectra.png" alt="News Project"
-                                class="w-full h-full object-cover opacity-70 group-hover:scale-110 transition-transform duration-500"
-                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-
-                            <!-- Fallback emoji -->
-                            <div
-                                class="absolute inset-0 hidden items-center justify-center text-6xl opacity-50 group-hover:scale-110 transition-transform duration-500">
-                                📰
-                            </div>
-                        </div>
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#12121a] to-transparent"></div>
-                        <div class="absolute bottom-4 left-4 right-4">
-                            <div class="flex gap-2 mb-2">
-                                <span
-                                    class="px-3 py-1 text-xs rounded-full bg-purple-500/20 text-purple-400 border border-purple-500/30">NLP</span>
-                                <span
-                                    class="px-3 py-1 text-xs rounded-full bg-pink-500/20 text-pink-400 border border-pink-500/30">BERT</span>
-                            </div>
+                <!-- Project 2: Adaptive Traffic Signal -->
+                <div class="reveal project-card group">
+                    <div class="project-image-wrapper bg-gradient-to-br from-cyan-900/50 to-blue-900/50">
+                        <img src="Assets/Traffic.png" alt="Adaptive Traffic Signal Control"
+                            onerror="this.style.display='none';">
+                        <div class="project-overlay"></div>
+                        <div class="project-tags-overlay">
+                            <span class="project-tag"
+                                style="background: rgba(0, 212, 255, 0.2); color: var(--primary); border: 1px solid rgba(0, 212, 255, 0.3);">Computer
+                                Vision</span>
+                            <span class="project-tag"
+                                style="background: rgba(96, 165, 250, 0.2); color: #60a5fa; border: 1px solid rgba(96, 165, 250, 0.3);">YOLO</span>
                         </div>
                     </div>
-                    <div class="p-8">
-                        <h3 class="text-2xl font-bold mb-3 group-hover:text-purple-400 transition-colors">BiasSpectra
-                        </h3>
-                        <p class="text-gray-400 mb-6 leading-relaxed">
-                            ML-based Political Bias Detection System for Indian news using BERT and rule-based
-                            filtering.
-                            Features a two-stage inference pipeline to filter non-political content before bias
-                            classification,
-                            deployed as an interactive Streamlit app with real-time headline analysis.
+                    <div class="project-body">
+                        <h3 class="project-title group-hover:text-[var(--primary)]">Adaptive Traffic Signal Control</h3>
+                        <p class="project-description">
+                            Developed a real-time vehicle detection system using YOLOv11, achieving <strong>92% detection accuracy</strong>
+                            across 4 vehicle classes. Simulated adaptive traffic signal control in SUMO for congestion reduction
+                            and emergency vehicle prioritization.
                         </p>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="text-xs px-3 py-1 rounded-full bg-white/5 text-gray-300">Python</span>
-                            <span class="text-xs px-3 py-1 rounded-full bg-white/5 text-gray-300">BERT</span>
-                            <span class="text-xs px-3 py-1 rounded-full bg-white/5 text-gray-300">Transformers</span>
-                            <span class="text-xs px-3 py-1 rounded-full bg-white/5 text-gray-300">HuggingFace</span>
+                        <div class="project-tech-stack">
+                            <span class="project-tech">Python</span>
+                            <span class="project-tech">YOLOv11</span>
+                            <span class="project-tech">PyTorch</span>
+                            <span class="project-tech">OpenCV</span>
+                            <span class="project-tech">SUMO</span>
                         </div>
-                        <div class="flex gap-4">
-                            <button
-                                class="flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-colors">
-                                <a href="https://huggingface.co/spaces/dakshaditya/bias-spectra"> <span>Live App</span></a> 
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                                </svg>
-                            </button>
-                            <a href="https://github.com/Adityahatake/bias-spectra" target="_blank"
-                                class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
-                                <span>GitHub</span>
+                        <div class="project-links">
+                            <a href="https://github.com/pic-road/vehicle_detection" target="_blank"
+                                class="project-link" style="color: var(--text-muted);">
                                 <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                                     <path
                                         d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
                                 </svg>
+                                GitHub
                             </a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Project 3: Daily Expense Tracker -->
-                <div class="reveal project-card glass rounded-2xl overflow-hidden group">
-                    <div class="h-64 bg-gradient-to-br from-green-900/50 to-emerald-900/50 relative overflow-hidden">
-                        <div class="absolute inset-0">
-                            <img src="Assets/Expense.png" alt="Daily Expense Tracker"
-                                class="w-full h-full object-cover opacity-70 group-hover:scale-110 transition-transform duration-500"
-                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-
-                            <!-- Fallback emoji -->
-                            <div class="absolute inset-0 hidden items-center justify-center text-6xl opacity-50 group-hover:scale-110 transition-transform duration-500">
-                                💸
-                            </div>
-                        </div>
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#12121a] to-transparent"></div>
-                        <div class="absolute bottom-4 left-4 right-4">
-                            <div class="flex gap-2 mb-2">
-                                <span class="px-3 py-1 text-xs rounded-full bg-green-500/20 text-green-400 border border-green-500/30">React</span>
-                                <span class="px-3 py-1 text-xs rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">TypeScript</span>
-                            </div>
+                <div class="reveal project-card group">
+                    <div class="project-image-wrapper bg-gradient-to-br from-green-900/50 to-emerald-900/50">
+                        <img src="Assets/Expense.png" alt="Daily Expense Tracker"
+                            onerror="this.style.display='none';">
+                        <div class="project-overlay"></div>
+                        <div class="project-tags-overlay">
+                            <span class="project-tag"
+                                style="background: rgba(16, 185, 129, 0.2); color: var(--emerald); border: 1px solid rgba(16, 185, 129, 0.3);">React</span>
+                            <span class="project-tag"
+                                style="background: rgba(52, 211, 153, 0.2); color: #34d399; border: 1px solid rgba(52, 211, 153, 0.3);">TypeScript</span>
                         </div>
                     </div>
-                    <div class="p-8">
-                        <h3 class="text-2xl font-bold mb-3 group-hover:text-green-400 transition-colors">Daily Expense Tracker</h3>
-                        <p class="text-gray-400 mb-6 leading-relaxed">
-                            A local expense tracking application structured to keep user interactions and sessions clean. Enables users to manage daily finances efficiently without pre-populated presets.
+                    <div class="project-body">
+                        <h3 class="project-title group-hover:text-[var(--emerald)]">Daily Expense Tracker</h3>
+                        <p class="project-description">
+                            A local expense tracking application enabling users to manage daily finances efficiently.
+                            Built with React and TypeScript for clean architecture and type safety.
                         </p>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="text-xs px-3 py-1 rounded-full bg-white/5 text-gray-300">TypeScript</span>
-                            <span class="text-xs px-3 py-1 rounded-full bg-white/5 text-gray-300">React</span>
-                            <span class="text-xs px-3 py-1 rounded-full bg-white/5 text-gray-300">CSS</span>
+                        <div class="project-tech-stack">
+                            <span class="project-tech">TypeScript</span>
+                            <span class="project-tech">React</span>
+                            <span class="project-tech">CSS</span>
                         </div>
-                        <div class="flex gap-4">
-                            <button class="flex items-center gap-2 text-green-400 hover:text-green-300 transition-colors cursor-not-allowed opacity-50" disabled>
-                              <a href="https://xpensetracker-one.vercel.app/"><span>Local App</span></a>  
+                        <div class="project-links">
+                            <a href="https://xpensetracker-one.vercel.app/" target="_blank"
+                                class="project-link" style="color: var(--emerald);">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                                 </svg>
-                            </button>
+                                Live App
+                            </a>
                             <a href="https://github.com/Adityahatake/Daily_Expense_Tracker" target="_blank"
-                                class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
-                                <span>GitHub</span>
+                                class="project-link" style="color: var(--text-muted);">
                                 <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                    <path
+                                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
                                 </svg>
+                                GitHub
                             </a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Project 4: Secure-JWT-Refresher -->
-                <div class="reveal project-card glass rounded-2xl overflow-hidden group">
-                    <div class="h-64 bg-gradient-to-br from-indigo-900/50 to-blue-900/50 relative overflow-hidden">
-                        <div class="absolute inset-0">
-                            <img src="Assets/Jwt.png" alt="Secure JWT Refresher"
-                                class="w-full h-full object-cover opacity-70 group-hover:scale-110 transition-transform duration-500"
-                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-
-                            <!-- Fallback emoji -->
-                            <div class="absolute inset-0 hidden items-center justify-center text-6xl opacity-50 group-hover:scale-110 transition-transform duration-500">
-                                🔒
-                            </div>
-                        </div>
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#12121a] to-transparent"></div>
-                        <div class="absolute bottom-4 left-4 right-4">
-                            <div class="flex gap-2 mb-2">
-                                <span class="px-3 py-1 text-xs rounded-full bg-indigo-500/20 text-indigo-400 border border-indigo-500/30">Backend</span>
-                                <span class="px-3 py-1 text-xs rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30">Auth</span>
-                            </div>
+                <div class="reveal project-card group">
+                    <div class="project-image-wrapper bg-gradient-to-br from-indigo-900/50 to-blue-900/50">
+                        <img src="Assets/Jwt.png" alt="Secure JWT Refresher"
+                            onerror="this.style.display='none';">
+                        <div class="project-overlay"></div>
+                        <div class="project-tags-overlay">
+                            <span class="project-tag"
+                                style="background: rgba(99, 102, 241, 0.2); color: #818cf8; border: 1px solid rgba(99, 102, 241, 0.3);">Backend</span>
+                            <span class="project-tag"
+                                style="background: rgba(96, 165, 250, 0.2); color: #60a5fa; border: 1px solid rgba(96, 165, 250, 0.3);">Auth</span>
                         </div>
                     </div>
-                    <div class="p-8">
-                        <h3 class="text-2xl font-bold mb-3 group-hover:text-indigo-400 transition-colors">Secure-JWT-Refresher</h3>
-                        <p class="text-gray-400 mb-6 leading-relaxed">
-                            A secure authentication system featuring JWTs, Silent Refresh Tokens, and automatic session management built entirely using .NET 8 and React.
+                    <div class="project-body">
+                        <h3 class="project-title group-hover:text-[#818cf8]">Secure-JWT-Refresher</h3>
+                        <p class="project-description">
+                            A secure authentication system with JWTs, Silent Refresh Tokens, and automatic
+                            session management. Built using .NET 8 backend and React frontend.
                         </p>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="text-xs px-3 py-1 rounded-full bg-white/5 text-gray-300">C#</span>
-                            <span class="text-xs px-3 py-1 rounded-full bg-white/5 text-gray-300">.NET 8</span>
-                            <span class="text-xs px-3 py-1 rounded-full bg-white/5 text-gray-300">React</span>
-                            <span class="text-xs px-3 py-1 rounded-full bg-white/5 text-gray-300">JWT</span>
+                        <div class="project-tech-stack">
+                            <span class="project-tech">C#</span>
+                            <span class="project-tech">.NET 8</span>
+                            <span class="project-tech">React</span>
+                            <span class="project-tech">JWT</span>
                         </div>
-                        <div class="flex gap-4">
-                            <button class="flex items-center gap-2 text-indigo-400 hover:text-indigo-300 transition-colors cursor-not-allowed opacity-50" disabled>
-                                <span>No Demo</span>
-                                <!-- <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"> -->
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                                </svg>
-                            </button>
+                        <div class="project-links">
                             <a href="https://github.com/Adityahatake/Secure-JWT-Refresher" target="_blank"
-                                class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
-                                <span>GitHub</span>
+                                class="project-link" style="color: var(--text-muted);">
                                 <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                    <path
+                                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
                                 </svg>
+                                GitHub
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <a href="https://github.com/Adityahatake?tab=repositories">
-            <div class="reveal mt-12 text-center">
-                <button class="px-8 py-3 border border-cyan-500/50 rounded-full hover:bg-cyan-500/10 transition-all">
-                    View All Projects →
-                </button>
-            </div>
-        </a>
+            <a href="https://github.com/Adityahatake?tab=repositories" target="_blank">
+                <div class="reveal mt-12 text-center">
+                    <button class="btn-secondary">
+                        View All Projects
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                    </button>
+                </div>
+            </a>
+        </div>
     </section>
 
-    <!-- Experience & Education Section -->
-    <section id="experience" class="py-32 px-6 relative bg-[#0a0a0f]">
+    <!-- ============================================
+         EXPERIENCE & EDUCATION SECTION
+         ============================================ -->
+    <section id="experience" class="py-28 px-6 relative" style="background: var(--dark);">
         <div class="max-w-7xl mx-auto">
             <div class="reveal text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-4">
-                    Journey & <span class="gradient-text">Achievements</span>
+                <div class="section-badge mx-auto w-fit">Career</div>
+                <h2 class="text-4xl md:text-5xl font-bold mb-3">
+                    Experience & <span class="gradient-text">Education</span>
                 </h2>
             </div>
-            
-            <!-- Work Experience row -->
-            <div class="mb-16">
-                <div class="reveal space-y-8">
-                    <h3 class="text-2xl font-bold text-green-400 mb-6">Work Experience</h3>
 
-                    <div class="glass p-6 rounded-xl border-l-4 border-green-500 relative overflow-hidden group hover:translate-x-2 transition-transform">
-                        <div class="absolute inset-0 bg-gradient-to-r from-green-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                        <div class="relative">
-                            <div class="flex justify-between items-start flex-wrap gap-2 mb-2">
-                                <h4 class="text-xl font-bold">Web Developer (Volunteer)</h4>
-                                <span class="text-green-400 text-sm font-semibold whitespace-nowrap">Dec 2024 - Jan 2025</span>
-                            </div>
-                            <p class="text-cyan-400 mb-4">Ganga Library INC (Remote)</p>
-                            <ul class="text-gray-300 text-sm space-y-2 list-disc list-inside">
-                                <li>Maintained and optimized a Nobel Prize archive website with 1000+ profiles, ensuring fast load times (&lt;2s).</li>
-                                <li>Implemented SEO optimizations, boosting website traffic by 20% within a month.</li>
-                                <li>Restructured UI components, leading to a 30% better accessibility score.</li>
-                            </ul>
+            <!-- Work Experience -->
+            <div class="mb-16">
+                <div class="reveal">
+                    <div class="timeline-section-label" style="color: var(--emerald);">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                        Work Experience
+                    </div>
+                </div>
+
+                <div class="space-y-5">
+                    <!-- ML Intern - Ganga Library -->
+                    <div class="reveal timeline-card experience">
+                        <div class="timeline-header">
+                            <h4 class="timeline-role">Machine Learning Intern</h4>
+                            <span class="timeline-date">Dec 2025 — Jan 2026</span>
                         </div>
+                        <p class="timeline-company">Ganga Library INC (Remote)</p>
+                        <ul class="timeline-bullets">
+                            <li>Built ML classification and trend-analysis models in Python on a dataset of 1,000+ Nobel Prize profiles, handling structured and unstructured data.</li>
+                            <li>Created visualizations and analytical reports that surfaced key trends to support data-driven decision making.</li>
+                            <li>Optimized data processing pipelines and debugged workflow issues to reduce execution time and improve efficiency.</li>
+                        </ul>
                     </div>
 
-                    <div class="glass p-6 rounded-xl border-l-4 border-teal-500 relative overflow-hidden group hover:translate-x-2 transition-transform">
-                        <div class="absolute inset-0 bg-gradient-to-r from-teal-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                        <div class="relative">
-                            <div class="flex justify-between items-start flex-wrap gap-2 mb-2">
-                                <h4 class="text-xl font-bold">Web Developer (Volunteer)</h4>
-                                <span class="text-teal-400 text-sm font-semibold whitespace-nowrap">Nov 2024 - Dec 2024</span>
-                            </div>
-                            <p class="text-cyan-400 mb-4">Stand Up to Our Perpetrators (Remote)</p>
-                            <ul class="text-gray-300 text-sm space-y-2 list-disc list-inside">
-                                <li>Redesigned the charity event website, improving user engagement by 35%.</li>
-                                <li>Enhanced front-end performance, reducing page load time by 50% using lazy loading and asset minification.</li>
-                                <li>Integrated a donation system, increasing contribution rates by 25%.</li>
-                            </ul>
+                    <!-- AI/ML Trainee - Global Infoventures -->
+                    <div class="reveal timeline-card experience-alt">
+                        <div class="timeline-header">
+                            <h4 class="timeline-role">AI/ML Trainee</h4>
+                            <span class="timeline-date">Sep 2024 — Feb 2025</span>
                         </div>
+                        <p class="timeline-company">Global Infoventures Pvt Ltd, Ghaziabad</p>
+                        <ul class="timeline-bullets">
+                            <li>Engineered deep learning models for PPE-violation detection and multi-person face detection applications.</li>
+                            <li>Managed Linux systems, containerized applications with Docker, and deployed models on NVIDIA DGX A100 infrastructure.</li>
+                            <li>Led and collaborated with a 4-member team on end-to-end dataset preparation and structured annotation using Roboflow.</li>
+                        </ul>
                     </div>
                 </div>
             </div>
 
             <div class="grid md:grid-cols-2 gap-12">
                 <!-- Education -->
-                <div class="reveal space-y-8">
-                    <h3 class="text-2xl font-bold text-cyan-400 mb-6">Education</h3>
-
-                    <div
-                        class="glass p-6 rounded-xl border-l-4 border-cyan-500 relative overflow-hidden group hover:translate-x-2 transition-transform">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-                        </div>
-                        <div class="relative">
-                            <h4 class="text-xl font-bold mb-2">B.Tech in Computer Science (AI)</h4>
-                            <p class="text-cyan-400 mb-1">ABES Institute of Technology, Ghaziabad</p>
-                            <p class="text-sm text-gray-400 mb-2">Expected Graduation: August 2026</p>
-                            <p class="text-gray-300 text-sm">Specializing in Artificial Intelligence, Machine Learning,
-                                and Deep Learning with hands-on project experience.</p>
+                <div>
+                    <div class="reveal">
+                        <div class="timeline-section-label" style="color: var(--primary);">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 14l9-5-9-5-9 5 9 5z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+                            </svg>
+                            Education
                         </div>
                     </div>
 
-                    <div
-                        class="glass p-6 rounded-xl border-l-4 border-purple-500 relative overflow-hidden group hover:translate-x-2 transition-transform">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-                        </div>
-                        <div class="relative">
-                            <h4 class="text-xl font-bold mb-2">Intermediate (SMKPD)</h4>
-                            <p class="text-purple-400 mb-1">2021-2022</p>
-                            <p class="text-gray-300 text-sm">Completed higher secondary education with focus on Physics,
-                                Chemistry, and Mathematics.</p>
+                    <div class="space-y-5">
+                        <div class="reveal timeline-card education">
+                            <h4 class="timeline-role">B.Tech in Computer Science (AI)</h4>
+                            <p class="timeline-company">ABES Institute of Technology, Ghaziabad</p>
+                            <div class="mt-2">
+                                <span class="timeline-date">Nov 2022 — Aug 2026</span>
+                            </div>
+                            <p class="text-sm text-[var(--text-secondary)] mt-3">Specializing in Artificial Intelligence, Machine Learning, and Deep Learning with hands-on project experience.</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Certifications -->
-                <div class="reveal space-y-8">
-                    <h3 class="text-2xl font-bold text-purple-400 mb-6">Certifications</h3>
-
-                    <div
-                        class="glass p-6 rounded-xl border-l-4 border-pink-500 relative overflow-hidden group hover:translate-x-2 transition-transform">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-r from-pink-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-                        </div>
-                        <div class="relative flex items-start gap-4">
-                            <div
-                                class="w-12 h-12 rounded-full bg-pink-500/20 flex items-center justify-center flex-shrink-0">
-                                <span class="text-2xl">☕</span>
-                            </div>
-                            <div>
-                                <h4 class="text-xl font-bold mb-1">Java Programming</h4>
-                                <p class="text-pink-400 text-sm mb-2">Soft Pro</p>
-                                <p class="text-gray-400 text-sm">Comprehensive Java programming certification covering
-                                    OOP concepts and advanced features.</p>
-                            </div>
+                <div>
+                    <div class="reveal">
+                        <div class="timeline-section-label" style="color: var(--secondary-light);">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                            </svg>
+                            Certifications
                         </div>
                     </div>
 
-                    <div
-                        class="glass p-6 rounded-xl border-l-4 border-yellow-500 relative overflow-hidden group hover:translate-x-2 transition-transform">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-r from-yellow-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-                        </div>
-                        <div class="relative flex items-start gap-4">
-                            <div
-                                class="w-12 h-12 rounded-full bg-yellow-500/20 flex items-center justify-center flex-shrink-0">
-                                <span class="text-2xl">🎮</span>
-                            </div>
+                    <div class="space-y-4">
+                        <div class="reveal cert-card">
+                            <div class="cert-icon" style="background: rgba(244, 114, 182, 0.1);">☕</div>
                             <div>
-                                <h4 class="text-xl font-bold mb-1">ML Training with GI Ventures</h4>
-                                <p class="text-yellow-400 text-sm mb-2">NVIDIA Partner</p>
-                                <p class="text-gray-400 text-sm">Specialized training in Machine Learning with NVIDIA
-                                    technologies and GPU acceleration.</p>
+                                <h4 class="cert-title">Java Programming Certification</h4>
+                                <p class="cert-issuer" style="color: var(--accent);">Soft Pro</p>
                             </div>
                         </div>
-                    </div>
 
-                    <div
-                        class="glass p-6 rounded-xl border-l-4 border-blue-500 relative overflow-hidden group hover:translate-x-2 transition-transform">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-                        </div>
-                        <div class="relative flex items-start gap-4">
-                            <div
-                                class="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center flex-shrink-0">
-                                <span class="text-2xl">🏆</span>
-                            </div>
+                        <div class="reveal cert-card">
+                            <div class="cert-icon" style="background: rgba(245, 158, 11, 0.1);">🎯</div>
                             <div>
-                                <h4 class="text-xl font-bold mb-1">TCS CodeVita 2024</h4>
-                                <p class="text-blue-400 text-sm mb-2">Global Coding Contest</p>
-                                <p class="text-gray-400 text-sm">Participated in TCS's prestigious global coding
-                                    competition, showcasing problem-solving skills.</p>
+                                <h4 class="cert-title">ML Training Certification</h4>
+                                <p class="cert-issuer" style="color: var(--amber);">GI Ventures (NVIDIA Partner)</p>
+                            </div>
+                        </div>
+
+                        <div class="reveal cert-card">
+                            <div class="cert-icon" style="background: rgba(96, 165, 250, 0.1);">🏆</div>
+                            <div>
+                                <h4 class="cert-title">TCS CodeVita 2024</h4>
+                                <p class="cert-issuer" style="color: #60a5fa;">TCS — Global Coding Contest</p>
+                            </div>
+                        </div>
+
+                        <div class="reveal cert-card">
+                            <div class="cert-icon" style="background: rgba(16, 185, 129, 0.1);">🐍</div>
+                            <div>
+                                <h4 class="cert-title">Python for ML & Data Science</h4>
+                                <p class="cert-issuer" style="color: var(--emerald);">Online Certification</p>
+                            </div>
+                        </div>
+
+                        <div class="reveal cert-card">
+                            <div class="cert-icon" style="background: rgba(124, 58, 237, 0.1);">🧠</div>
+                            <div>
+                                <h4 class="cert-title">AI & Deep Learning</h4>
+                                <p class="cert-issuer" style="color: var(--secondary-light);">Academic Training</p>
                             </div>
                         </div>
                     </div>
@@ -813,86 +760,77 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-32 px-6 relative">
+    <!-- ============================================
+         CONTACT SECTION
+         ============================================ -->
+    <section id="contact" class="py-28 px-6 relative">
         <div class="max-w-4xl mx-auto">
             <div class="reveal text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                <div class="section-badge mx-auto w-fit">Get in Touch</div>
+                <h2 class="text-4xl md:text-5xl font-bold mb-3">
                     Let's <span class="gradient-text">Connect</span>
                 </h2>
-                <p class="text-gray-400">Have a project in mind? Let's build something intelligent together.</p>
+                <p class="text-[var(--text-muted)] max-w-lg mx-auto">Have a project in mind? Let's build something intelligent together.</p>
             </div>
 
-            <div class="reveal glass p-8 md:p-12 rounded-3xl relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-64 h-64 bg-cyan-500/20 rounded-full blur-3xl -mr-32 -mt-32"></div>
-                <div class="absolute bottom-0 left-0 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl -ml-32 -mb-32">
-                </div>
+            <div class="reveal contact-form-wrapper">
+                <div class="glow-orb cyan"></div>
+                <div class="glow-orb purple"></div>
 
                 <form id="contact-form" class="relative space-y-6" onsubmit="handleSubmit(event)">
                     <div class="grid md:grid-cols-2 gap-6">
                         <div>
-                            <label class="block text-sm font-medium mb-2 text-gray-300">Name</label>
-                            <input type="text" name="name"
-                                class="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 input-glow outline-none transition-all text-white placeholder-gray-500"
-                                placeholder="John Doe" required>
+                            <label class="contact-label" for="contact-name">Name</label>
+                            <input type="text" name="name" id="contact-name" class="contact-input"
+                                placeholder="Your name" required>
                         </div>
                         <div>
-                            <label class="block text-sm font-medium mb-2 text-gray-300">Email</label>
-                            <input type="email" name="email"
-                                class="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 input-glow outline-none transition-all text-white placeholder-gray-500"
-                                placeholder="john@example.com" required>
+                            <label class="contact-label" for="contact-email">Email</label>
+                            <input type="email" name="email" id="contact-email" class="contact-input"
+                                placeholder="your@email.com" required>
                         </div>
                     </div>
 
                     <div>
-                        <label class="block text-sm font-medium mb-2 text-gray-300">Subject</label>
-                        <input type="text" name="subject"
-                            class="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 input-glow outline-none transition-all text-white placeholder-gray-500"
+                        <label class="contact-label" for="contact-subject">Subject</label>
+                        <input type="text" name="subject" id="contact-subject" class="contact-input"
                             placeholder="Project Collaboration" required>
                     </div>
 
                     <div>
-                        <label class="block text-sm font-medium mb-2 text-gray-300">Message</label>
-                        <textarea rows="5" name="message"
-                            class="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 input-glow outline-none transition-all text-white placeholder-gray-500 resize-none"
-                            placeholder="Tell me about your project..." required></textarea>
+                        <label class="contact-label" for="contact-message">Message</label>
+                        <textarea rows="5" name="message" id="contact-message" class="contact-input"
+                            style="resize: none;" placeholder="Tell me about your project..." required></textarea>
                     </div>
 
-                    <button type="submit"
-                        class="w-full py-4 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-lg font-semibold text-white hover:shadow-lg hover:shadow-cyan-500/25 transition-all transform hover:scale-[1.02]">
+                    <button type="submit" class="contact-submit" id="contact-submit-btn">
                         Send Message 🚀
                     </button>
                 </form>
 
-                <div
-                    class="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
-                    <div class="flex items-center gap-4">
-                        <div
-                            class="w-12 h-12 rounded-full bg-gradient-to-br from-cyan-500 to-purple-600 flex items-center justify-center text-xl font-bold">
-                            AD
-                        </div>
+                <div class="contact-info-bar">
+                    <div class="contact-identity">
+                        <div class="contact-avatar">AD</div>
                         <div>
-                            <div class="font-bold">Aditya Daksh</div>
-                            <div class="text-sm text-gray-400">AI/ML Engineer</div>
+                            <div class="contact-name">Aditya Daksh</div>
+                            <div class="contact-role">AI Engineer</div>
                         </div>
                     </div>
 
-                    <div class="flex gap-6 text-gray-400">
-                        <a href="tel:+918923966049"
-                            class="hover:text-cyan-400 transition-colors flex items-center gap-2">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div class="contact-links">
+                        <a href="tel:+918923966049" class="contact-link-item">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                             </svg>
                             <span class="hidden md:inline">+91 89239 66049</span>
                         </a>
-                        <a href="mailto:adityadaskh567@gmail.com"
-                            class="hover:text-cyan-400 transition-colors flex items-center gap-2">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <a href="mailto:adityadaksh567@gmail.com" class="contact-link-item">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                             </svg>
-                            <span class="hidden md:inline">adityadaskh567@gmail.com</span>
+                            <span class="hidden md:inline">adityadaksh567@gmail.com</span>
                         </a>
                     </div>
                 </div>
@@ -901,18 +839,16 @@
     </section>
 
     <!-- Footer -->
-    <footer class="py-8 px-6 border-t border-white/10 bg-[#050508]">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-            <div class="text-gray-500 text-sm">
-                © 2024 Aditya Daksh. Crafted with 💙
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-text">
+                © 2025 Aditya Daksh. Built with 💙
             </div>
-            <div class="flex gap-6 text-sm text-gray-500">
-                <a href="https://github.com/Adityahatake" target="_blank"
-                    class="hover:text-cyan-400 transition-colors">GitHub</a>
+            <div class="footer-links">
+                <a href="https://github.com/Adityahatake" target="_blank" class="footer-link">GitHub</a>
                 <a href="https://www.linkedin.com/in/aditya-daksh-288032251" target="_blank"
-                    class="hover:text-cyan-400 transition-colors">LinkedIn</a>
-                <a href="https://x.com/AdityaDaksh8" target="_blank"
-                    class="hover:text-cyan-400 transition-colors">Twitter (X)</a>
+                    class="footer-link">LinkedIn</a>
+                <a href="https://x.com/AdityaDaksh8" target="_blank" class="footer-link">X (Twitter)</a>
             </div>
         </div>
     </footer>

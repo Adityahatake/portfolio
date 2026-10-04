@@ -5,22 +5,24 @@ gsap.registerPlugin(ScrollTrigger);
 const cursorDot = document.querySelector('.cursor-dot');
 const cursorOutline = document.querySelector('.cursor-outline');
 
-window.addEventListener('mousemove', (e) => {
-    const posX = e.clientX;
-    const posY = e.clientY;
-    cursorDot.style.left = `${posX}px`;
-    cursorDot.style.top = `${posY}px`;
-    cursorOutline.animate({
-        left: `${posX}px`,
-        top: `${posY}px`
-    }, { duration: 500, fill: "forwards" });
-});
+if (cursorDot && cursorOutline) {
+    window.addEventListener('mousemove', (e) => {
+        const posX = e.clientX;
+        const posY = e.clientY;
+        cursorDot.style.left = `${posX}px`;
+        cursorDot.style.top = `${posY}px`;
+        cursorOutline.animate({
+            left: `${posX}px`,
+            top: `${posY}px`
+        }, { duration: 500, fill: "forwards" });
+    });
 
-const interactiveElements = document.querySelectorAll('a, button, .tilt-card');
-interactiveElements.forEach(el => {
-    el.addEventListener('mouseenter', () => cursorOutline.classList.add('hover'));
-    el.addEventListener('mouseleave', () => cursorOutline.classList.remove('hover'));
-});
+    const interactiveElements = document.querySelectorAll('a, button, .tilt-card, .focus-chip, .skill-tag, .cert-card, .social-link');
+    interactiveElements.forEach(el => {
+        el.addEventListener('mouseenter', () => cursorOutline.classList.add('hover'));
+        el.addEventListener('mouseleave', () => cursorOutline.classList.remove('hover'));
+    });
+}
 
 // Royal Flower Transition Effect
 function triggerMechaFlower(targetId) {
@@ -75,8 +77,8 @@ const canvas = document.getElementById('neural-canvas');
 const ctx = canvas.getContext('2d');
 let width, height;
 let particles = [];
-const particleCount = 80;
-const connectionDistance = 150;
+const particleCount = 70;
+const connectionDistance = 140;
 
 function resize() {
     width = canvas.width = window.innerWidth;
@@ -87,9 +89,9 @@ class Particle {
     constructor() {
         this.x = Math.random() * width;
         this.y = Math.random() * height;
-        this.vx = (Math.random() - 0.5) * 0.5;
-        this.vy = (Math.random() - 0.5) * 0.5;
-        this.radius = Math.random() * 2 + 1;
+        this.vx = (Math.random() - 0.5) * 0.4;
+        this.vy = (Math.random() - 0.5) * 0.4;
+        this.radius = Math.random() * 2 + 0.5;
     }
     update() {
         this.x += this.vx;
@@ -100,7 +102,7 @@ class Particle {
     draw() {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(0, 240, 255, 0.5)';
+        ctx.fillStyle = 'rgba(0, 212, 255, 0.45)';
         ctx.fill();
     }
 }
@@ -124,8 +126,8 @@ function animateParticles() {
                 ctx.beginPath();
                 ctx.moveTo(p.x, p.y);
                 ctx.lineTo(p2.x, p2.y);
-                ctx.strokeStyle = `rgba(0, 240, 255, ${0.2 * (1 - dist / connectionDistance)})`;
-                ctx.lineWidth = 1;
+                ctx.strokeStyle = `rgba(0, 212, 255, ${0.15 * (1 - dist / connectionDistance)})`;
+                ctx.lineWidth = 0.8;
                 ctx.stroke();
             }
         }
@@ -152,9 +154,9 @@ if (heroContainer) {
         new THREE.TetrahedronGeometry(1.8, 0)
     ];
     const materials = [
-        new THREE.MeshBasicMaterial({ color: 0x00f0ff, wireframe: true, transparent: true, opacity: 0.3 }),
-        new THREE.MeshBasicMaterial({ color: 0x7000ff, wireframe: true, transparent: true, opacity: 0.3 }),
-        new THREE.MeshBasicMaterial({ color: 0xff006e, wireframe: true, transparent: true, opacity: 0.3 })
+        new THREE.MeshBasicMaterial({ color: 0x00d4ff, wireframe: true, transparent: true, opacity: 0.25 }),
+        new THREE.MeshBasicMaterial({ color: 0x7c3aed, wireframe: true, transparent: true, opacity: 0.25 }),
+        new THREE.MeshBasicMaterial({ color: 0xf472b6, wireframe: true, transparent: true, opacity: 0.25 })
     ];
     const meshes = [];
     geometries.forEach((geo, i) => {
@@ -173,9 +175,9 @@ if (heroContainer) {
     function animate3D() {
         requestAnimationFrame(animate3D);
         meshes.forEach((mesh, i) => {
-            mesh.rotation.x += 0.005 * (i + 1);
-            mesh.rotation.y += 0.005 * (i + 1);
-            mesh.position.y += Math.sin(Date.now() * 0.001 + i) * 0.01;
+            mesh.rotation.x += 0.004 * (i + 1);
+            mesh.rotation.y += 0.004 * (i + 1);
+            mesh.position.y += Math.sin(Date.now() * 0.001 + i) * 0.008;
         });
         camera.position.x += (mouseX * 2 - camera.position.x) * 0.05;
         camera.position.y += (mouseY * 2 - camera.position.y) * 0.05;
@@ -185,9 +187,16 @@ if (heroContainer) {
     animate3D();
 }
 
-// Typing Effect
+// Typing Effect — Updated roles for recruiter impact
 const typingText = document.getElementById('typingText');
-const texts = ['AI/ML Engineer', 'Computer Vision Expert', 'NLP Specialist', 'Deep Learning Enthusiast'];
+const texts = [
+    'AI Engineer',
+    'Generative AI Developer',
+    'Agentic AI Builder',
+    'LLM Applications',
+    'Computer Vision Expert',
+    'NLP Specialist'
+];
 let textIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
@@ -200,14 +209,14 @@ function type() {
         typingText.textContent = currentText.substring(0, charIndex + 1);
         charIndex++;
     }
-    let typeSpeed = isDeleting ? 50 : 100;
+    let typeSpeed = isDeleting ? 40 : 80;
     if (!isDeleting && charIndex === currentText.length) {
-        typeSpeed = 2000;
+        typeSpeed = 2200;
         isDeleting = true;
     } else if (isDeleting && charIndex === 0) {
         isDeleting = false;
         textIndex = (textIndex + 1) % texts.length;
-        typeSpeed = 500;
+        typeSpeed = 400;
     }
     setTimeout(type, typeSpeed);
 }
@@ -235,8 +244,8 @@ tiltCards.forEach(card => {
         const y = e.clientY - rect.top;
         const centerX = rect.width / 2;
         const centerY = rect.height / 2;
-        const rotateX = (y - centerY) / 20;
-        const rotateY = (centerX - x) / 20;
+        const rotateX = (y - centerY) / 25;
+        const rotateY = (centerX - x) / 25;
         card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
     });
     card.addEventListener('mouseleave', () => {
@@ -252,11 +261,11 @@ function createBinaryDrop() {
     drop.textContent = Math.random() > 0.5 ? '1' : '0';
     drop.style.left = Math.random() * 100 + '%';
     drop.style.animationDuration = (Math.random() * 3 + 2) + 's';
-    drop.style.opacity = Math.random() * 0.5;
+    drop.style.opacity = Math.random() * 0.4;
     binaryContainer.appendChild(drop);
     setTimeout(() => drop.remove(), 5000);
 }
-setInterval(createBinaryDrop, 100);
+setInterval(createBinaryDrop, 120);
 
 // Mobile Menu Toggle
 function toggleMobileMenu() {
@@ -264,10 +273,16 @@ function toggleMobileMenu() {
     menu.classList.toggle('hidden');
 }
 
+// Close mobile menu when a link is clicked
+document.querySelectorAll('#mobileMenu a').forEach(link => {
+    link.addEventListener('click', () => {
+        document.getElementById('mobileMenu').classList.add('hidden');
+    });
+});
 
 // Particle Trail Effect
 document.addEventListener('mousemove', (e) => {
-    if (Math.random() > 0.9) {
+    if (Math.random() > 0.92) {
         const particle = document.createElement('div');
         particle.className = 'particle';
         particle.style.left = e.clientX + 'px';
@@ -293,11 +308,12 @@ let lastScroll = 0;
 window.addEventListener('scroll', () => {
     const navbar = document.getElementById('navbar');
     const currentScroll = window.pageYOffset;
-    if (currentScroll > 100) {
-        navbar.classList.add('glass');
-        navbar.style.background = 'rgba(18, 18, 26, 0.9)';
+    if (currentScroll > 80) {
+        navbar.style.background = 'rgba(17, 17, 24, 0.92)';
+        navbar.style.borderBottom = '1px solid rgba(255,255,255,0.06)';
     } else {
         navbar.style.background = 'transparent';
+        navbar.style.borderBottom = 'none';
     }
     lastScroll = currentScroll;
 });
@@ -322,6 +338,7 @@ function handleSubmit(e) {
     const originalBtnText = submitBtn.innerHTML;
     submitBtn.innerHTML = 'Sending... ⏳';
     submitBtn.disabled = true;
+    submitBtn.style.opacity = '0.7';
 
     // Trigger visual effect
     if (typeof triggerMechaFlower === 'function') {
@@ -332,14 +349,16 @@ function handleSubmit(e) {
     emailjs.sendForm('service_6wy2r9p', 'template_ee9i7hl', contactForm)
         .then(() => {
             setTimeout(() => {
-                alert('Message sent successfully!');
+                alert('Message sent successfully! ✅');
                 contactForm.reset();
                 submitBtn.innerHTML = originalBtnText;
                 submitBtn.disabled = false;
+                submitBtn.style.opacity = '1';
             }, 600); // 600ms timeout to align with visual effect
         }, (error) => {
             alert('Failed to send message: ' + JSON.stringify(error));
             submitBtn.innerHTML = originalBtnText;
             submitBtn.disabled = false;
+            submitBtn.style.opacity = '1';
         });
 }
