@@ -22,11 +22,11 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css">   
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 
-<body class="antialiased">
+<body class="antialiased">   
 
     <!-- Custom Cursor -->
     <div class="cursor-dot hidden md:block"></div>
@@ -299,6 +299,7 @@
                         <span class="skill-tag cyan">LLMs</span>
                         <span class="skill-tag cyan">Prompt Engineering</span>
                         <span class="skill-tag cyan">OpenAI</span>
+                        <span class="skill-tag cyan">Groq</span>
                         <span class="skill-tag cyan">LangChain</span>
                         <span class="skill-tag cyan">LangGraph</span>
                         <span class="skill-tag cyan">RAG</span>
@@ -375,11 +376,12 @@
                         <h3 class="skill-category-title" style="color: #60a5fa;">Databases</h3>
                     </div>
                     <div class="skill-tags">
+                        <span class="skill-tag blue">ChromaDB</span>
+                        <span class="skill-tag blue">Vector DBs</span>
                         <span class="skill-tag blue">SQL</span>
                         <span class="skill-tag blue">MySQL</span>
                         <span class="skill-tag blue">MongoDB</span>
                         <span class="skill-tag blue">Redis</span>
-                        <span class="skill-tag blue">Vector DBs</span>
                     </div>
                 </div>
 
@@ -390,10 +392,11 @@
                         <h3 class="skill-category-title" style="color: #f472b6;">Web Technologies</h3>
                     </div>
                     <div class="skill-tags">
+                        <span class="skill-tag pink">TypeScript</span>
+                        <span class="skill-tag pink">React.js</span>
+                        <span class="skill-tag pink">JavaScript</span>
                         <span class="skill-tag pink">HTML</span>
                         <span class="skill-tag pink">CSS</span>
-                        <span class="skill-tag pink">JavaScript</span>
-                        <span class="skill-tag pink">React.js</span>
                     </div>
                 </div>
 
@@ -432,7 +435,60 @@
 
             <div class="grid md:grid-cols-2 gap-8">
 
-                <!-- Project 1: BiasSpectra -->
+                <!-- Project 1 (Featured): Nexora – RAG-Based Book Assistant -->
+                <div class="reveal project-card featured-project group md:col-span-2">
+                    <div class="grid md:grid-cols-12 h-full">
+                        <div class="project-image-wrapper md:col-span-6 md:h-auto min-h-[260px] relative overflow-hidden bg-gradient-to-br from-amber-950/60 via-red-950/40 to-orange-900/50">
+                            <img src="Assets/Nexora.png" alt="Nexora – RAG-Based Book Assistant"
+                                onerror="this.style.display='none';">
+                            <div class="project-overlay"></div>
+                            <div class="project-tags-overlay">
+                                <span class="project-tag"
+                                    style="background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3);">Featured</span>
+                                <span class="project-tag"
+                                    style="background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3);">RAG System</span>
+                                <span class="project-tag"
+                                    style="background: rgba(0, 212, 255, 0.2); color: var(--primary); border: 1px solid rgba(0, 212, 255, 0.3);">LangChain</span>
+                            </div>
+                        </div>
+                        <div class="project-body md:col-span-6 flex flex-col justify-between">
+                            <div>
+                                <h3 class="project-title group-hover:text-[#fbbf24]">Nexora – RAG-Based Book Assistant</h3>
+                                <p class="project-description mb-3">
+                                    Developed a full-stack <strong>Retrieval-Augmented Generation (RAG)</strong> application enabling conversational querying of PDF books using semantic search and context-grounded LLM responses.
+                                </p>
+                                <ul class="text-xs sm:text-sm text-[var(--text-secondary)] space-y-2 mb-4 list-disc pl-4 marker:text-[#fbbf24]">
+                                    <li>Implemented document ingestion pipeline using <strong>PyPDFLoader</strong>, <strong>OpenAI embeddings</strong>, and <strong>ChromaDB</strong>, with configurable text chunking and <strong>Maximal Marginal Relevance (MMR)</strong> retrieval for diverse, relevant context.</li>
+                                    <li>Built an AI-powered assessment engine generating multiple-choice and fill-in-the-blank questions, with semantic answer validation, difficulty levels, mastery scoring, and feedback.</li>
+                                    <li>Integrated <strong>Groq LLM inference</strong> and source citations with page-level references to support answer verification, alongside a <strong>React & TypeScript</strong> frontend served through <strong>FastAPI</strong>.</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <div class="project-tech-stack">
+                                    <span class="project-tech">Python</span>
+                                    <span class="project-tech">FastAPI</span>
+                                    <span class="project-tech">LangChain</span>
+                                    <span class="project-tech">ChromaDB</span>
+                                    <span class="project-tech">Groq</span>
+                                    <span class="project-tech">React</span>
+                                    <span class="project-tech">TypeScript</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://github.com/Adityahatake/Nexora-Ai" target="_blank"
+                                        class="project-link" style="color: #fbbf24;">
+                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                            <path
+                                                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                        </svg>
+                                        GitHub
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: BiasSpectra -->
                 <div class="reveal project-card group">
                     <div class="project-image-wrapper bg-gradient-to-br from-purple-900/50 to-pink-900/50">
                         <img src="Assets/Bais_spectra.png" alt="BiasSpectra — Political Bias Detection"
