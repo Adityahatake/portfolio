@@ -218,6 +218,7 @@ function type() {
         textIndex = (textIndex + 1) % texts.length;
         typeSpeed = 400;
     }
+
     setTimeout(type, typeSpeed);
 }
 type();
