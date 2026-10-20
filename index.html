@@ -20,13 +20,20 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <link
-        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Marcellus&family=Inter:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="styles.css">   
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 
 <body class="antialiased">   
+
+    <!-- Cinematic Temple Sanctum Backdrop -->
+    <div class="temple-backdrop-container" aria-hidden="true">
+        <div class="temple-bg-image" id="templeBg"></div>
+        <div class="temple-vignette-overlay"></div>
+        <div class="temple-torch-glow" id="templeTorchGlow"></div>
+    </div>
 
     <!-- Custom Cursor -->
     <div class="cursor-dot hidden md:block"></div>
@@ -41,26 +48,26 @@
     <!-- Navigation -->
     <nav class="fixed top-0 w-full z-50 glass px-6 py-4 transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <div class="text-2xl font-bold font-['Space_Grotesk'] gradient-text cursor-pointer"
+            <div class="text-2xl font-bold font-['Cinzel'] gradient-text cursor-pointer"
                 onclick="triggerMechaFlower('hero')">
-                AD<span class="text-white" style="-webkit-text-fill-color: white;">.</span>
+                AD<span class="text-white" style="-webkit-text-fill-color: #F5EDE4;">.</span>
             </div>
 
             <div class="hidden md:flex items-center space-x-8">
                 <a href="#about"
-                    class="nav-link text-sm uppercase tracking-widest text-[var(--text-secondary)] hover:text-[var(--primary)] transition-colors"
+                    class="nav-link text-sm uppercase tracking-widest text-[var(--text-secondary)] hover:text-[var(--secondary)] transition-colors"
                     onclick="triggerMechaFlower('about')">About</a>
                 <a href="#skills"
-                    class="nav-link text-sm uppercase tracking-widest text-[var(--text-secondary)] hover:text-[var(--primary)] transition-colors"
+                    class="nav-link text-sm uppercase tracking-widest text-[var(--text-secondary)] hover:text-[var(--secondary)] transition-colors"
                     onclick="triggerMechaFlower('skills')">Skills</a>
                 <a href="#projects"
-                    class="nav-link text-sm uppercase tracking-widest text-[var(--text-secondary)] hover:text-[var(--primary)] transition-colors"
+                    class="nav-link text-sm uppercase tracking-widest text-[var(--text-secondary)] hover:text-[var(--secondary)] transition-colors"
                     onclick="triggerMechaFlower('projects')">Projects</a>
                 <a href="#experience"
-                    class="nav-link text-sm uppercase tracking-widest text-[var(--text-secondary)] hover:text-[var(--primary)] transition-colors"
+                    class="nav-link text-sm uppercase tracking-widest text-[var(--text-secondary)] hover:text-[var(--secondary)] transition-colors"
                     onclick="triggerMechaFlower('experience')">Experience</a>
                 <a href="#contact"
-                    class="nav-link text-sm uppercase tracking-widest text-[var(--text-secondary)] hover:text-[var(--primary)] transition-colors"
+                    class="nav-link text-sm uppercase tracking-widest text-[var(--text-secondary)] hover:text-[var(--secondary)] transition-colors"
                     onclick="triggerMechaFlower('contact')">Contact</a>
                 <a href="Aditya_Daksh_AI_Engineer.pdf" download class="btn-resume">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -110,9 +117,9 @@
                 </h1>
 
                 <p class="hero-description">
-                    AI Engineer specializing in <span style="color: var(--primary)">Generative AI</span>,
-                    <span style="color: var(--secondary-light)">Agentic AI</span>, and
-                    <span style="color: var(--accent)">LLM Applications</span>. Building intelligent agent
+                    AI Engineer specializing in <span style="color: #FBBF24">Generative AI</span>,
+                    <span style="color: #D4AF37">Agentic AI</span>, and
+                    <span style="color: #14B8A6">LLM Applications</span>. Building intelligent agent
                     workflows and AI-powered systems with LangChain, LangGraph, RAG & Vector Databases.
                 </p>
 
@@ -160,15 +167,35 @@
                 </div>
             </div>
 
-            <div class="relative hidden md:block">
-                <div id="hero-3d-container" class="w-full h-[600px]"></div>
-                <div class="absolute inset-0 bg-gradient-to-r from-[#050508] via-transparent to-transparent"></div>
+            <div class="relative hidden md:flex items-center justify-center">
+                <div class="hero-mandala-aura" aria-hidden="true"></div>
+                <div id="hero-3d-container" class="w-full h-[600px] flex items-center justify-center relative z-10"></div>
             </div>
         </div>
 
         <!-- Binary Rain Effect -->
         <div id="binaryRain" class="absolute inset-0 pointer-events-none opacity-20"></div>
     </section>
+
+    <!-- Temple Torana Arch Divider -->
+    <div class="temple-divider" aria-hidden="true">
+        <div class="temple-divider-line"></div>
+        <div class="temple-divider-motif">
+            <svg class="w-7 h-7" viewBox="0 0 40 40" fill="none">
+                <path d="M20 2L24 16L38 20L24 24L20 38L16 24L2 20L16 16L20 2Z" fill="url(#toranaGold1)" opacity="0.85"/>
+                <circle cx="20" cy="20" r="4" fill="#FBBF24"/>
+                <circle cx="20" cy="20" r="10" stroke="#D4AF37" stroke-width="0.8" stroke-dasharray="2 2"/>
+                <defs>
+                    <linearGradient id="toranaGold1" x1="2" y1="2" x2="38" y2="38" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#F59E0B"/>
+                        <stop offset="0.5" stop-color="#D4AF37"/>
+                        <stop offset="1" stop-color="#B45309"/>
+                    </linearGradient>
+                </defs>
+            </svg>
+        </div>
+        <div class="temple-divider-line"></div>
+    </div>
 
     <!-- ============================================
          ABOUT SECTION
@@ -187,18 +214,18 @@
                 <div class="reveal">
                     <div class="about-card tilt-card" id="aboutCard">
                         <div class="tilt-content space-y-5">
-                            <h3 class="text-2xl font-bold" style="color: var(--primary);">AI Engineer | GenAI & Agentic AI</h3>
+                            <h3 class="text-2xl font-bold" style="color: #FBBF24; font-family: 'Cinzel', serif;">AI Engineer | GenAI & Agentic AI</h3>
                             <p class="text-[var(--text-secondary)] leading-relaxed">
                                 AI/ML-focused Computer Science Engineering student with hands-on experience in
-                                <span style="color: var(--primary); font-weight:600;">Generative AI</span>,
-                                <span style="color: var(--secondary-light); font-weight:600;">Agentic AI</span>, and
-                                <span style="color: var(--accent); font-weight:600;">LLM-based applications</span>.
+                                <span style="color: #FBBF24; font-weight:600;">Generative AI</span>,
+                                <span style="color: #D4AF37; font-weight:600;">Agentic AI</span>, and
+                                <span style="color: #14B8A6; font-weight:600;">LLM-based applications</span>.
                             </p>
                             <p class="text-[var(--text-secondary)] leading-relaxed">
                                 Skilled in Python, Prompt Engineering, OpenAI, LangChain, LangGraph, RAG, Embeddings,
                                 and Vector Databases. Background in Machine Learning, NLP, and Computer Vision, including
-                                production deployment on <span style="color: var(--emerald); font-weight:600;">Docker</span> and
-                                <span style="color: var(--amber); font-weight:600;">NVIDIA DGX A100</span> infrastructure.
+                                production deployment on <span style="color: #0D9488; font-weight:600;">Docker</span> and
+                                <span style="color: #FB923C; font-weight:600;">NVIDIA DGX A100</span> infrastructure.
                             </p>
 
                             <!-- Stats Row -->
@@ -226,42 +253,42 @@
                         <div class="focus-chip float" style="animation-delay: 0s;">
                             <span class="chip-icon">🤖</span>
                             <div>
-                                <div class="font-semibold text-sm" style="color: var(--primary);">Generative AI</div>
+                                <div class="font-semibold text-sm" style="color: #FBBF24;">Generative AI</div>
                                 <div class="text-xs text-[var(--text-muted)]">LLMs & Agents</div>
                             </div>
                         </div>
                         <div class="focus-chip float" style="animation-delay: 1s;">
                             <span class="chip-icon">🧠</span>
                             <div>
-                                <div class="font-semibold text-sm" style="color: var(--secondary-light);">Agentic AI</div>
+                                <div class="font-semibold text-sm" style="color: #D4AF37;">Agentic AI</div>
                                 <div class="text-xs text-[var(--text-muted)]">LangChain & LangGraph</div>
                             </div>
                         </div>
                         <div class="focus-chip float" style="animation-delay: 2s;">
                             <span class="chip-icon">🔍</span>
                             <div>
-                                <div class="font-semibold text-sm" style="color: var(--accent);">RAG Systems</div>
+                                <div class="font-semibold text-sm" style="color: #F59E0B;">RAG Systems</div>
                                 <div class="text-xs text-[var(--text-muted)]">Embeddings & Vectors</div>
                             </div>
                         </div>
                         <div class="focus-chip float" style="animation-delay: 1.5s;">
                             <span class="chip-icon">👁️</span>
                             <div>
-                                <div class="font-semibold text-sm" style="color: var(--emerald);">Computer Vision</div>
+                                <div class="font-semibold text-sm" style="color: #0D9488;">Computer Vision</div>
                                 <div class="text-xs text-[var(--text-muted)]">YOLO & OpenCV</div>
                             </div>
                         </div>
                         <div class="focus-chip float" style="animation-delay: 0.5s;">
                             <span class="chip-icon">💬</span>
                             <div>
-                                <div class="font-semibold text-sm" style="color: #f472b6;">NLP</div>
+                                <div class="font-semibold text-sm" style="color: #DC2626;">NLP</div>
                                 <div class="text-xs text-[var(--text-muted)]">BERT & Transformers</div>
                             </div>
                         </div>
                         <div class="focus-chip float" style="animation-delay: 2.5s;">
                             <span class="chip-icon">🚀</span>
                             <div>
-                                <div class="font-semibold text-sm" style="color: #60a5fa;">Deployment</div>
+                                <div class="font-semibold text-sm" style="color: #14B8A6;">Deployment</div>
                                 <div class="text-xs text-[var(--text-muted)]">Docker & DGX A100</div>
                             </div>
                         </div>
@@ -271,10 +298,30 @@
         </div>
     </section>
 
+    <!-- Temple Torana Arch Divider -->
+    <div class="temple-divider" aria-hidden="true">
+        <div class="temple-divider-line"></div>
+        <div class="temple-divider-motif">
+            <svg class="w-7 h-7" viewBox="0 0 40 40" fill="none">
+                <path d="M20 2L24 16L38 20L24 24L20 38L16 24L2 20L16 16L20 2Z" fill="url(#toranaGold2)" opacity="0.85"/>
+                <circle cx="20" cy="20" r="4" fill="#FBBF24"/>
+                <circle cx="20" cy="20" r="10" stroke="#D4AF37" stroke-width="0.8" stroke-dasharray="2 2"/>
+                <defs>
+                    <linearGradient id="toranaGold2" x1="2" y1="2" x2="38" y2="38" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#F59E0B"/>
+                        <stop offset="0.5" stop-color="#D4AF37"/>
+                        <stop offset="1" stop-color="#B45309"/>
+                    </linearGradient>
+                </defs>
+            </svg>
+        </div>
+        <div class="temple-divider-line"></div>
+    </div>
+
     <!-- ============================================
          SKILLS SECTION
          ============================================ -->
-    <section id="skills" class="py-28 px-6 relative" style="background: var(--dark);">
+    <section id="skills" class="py-28 px-6 relative temple-section-veil">
         <div class="max-w-7xl mx-auto">
             <div class="reveal text-center mb-16">
                 <div class="section-badge mx-auto w-fit">Technical Skills</div>
@@ -289,8 +336,8 @@
                 <!-- Generative AI & Agents -->
                 <div class="reveal skill-category-card">
                     <div class="skill-category-header">
-                        <div class="skill-category-icon" style="background: rgba(0, 212, 255, 0.1);">🤖</div>
-                        <h3 class="skill-category-title" style="color: var(--primary);">Generative AI & Agents</h3>
+                        <div class="skill-category-icon" style="background: rgba(251, 191, 36, 0.1);">🤖</div>
+                        <h3 class="skill-category-title" style="color: #FBBF24;">Generative AI & Agents</h3>
                     </div>
                     <div class="skill-tags">
                         <span class="skill-tag cyan">Generative AI</span>
@@ -311,8 +358,8 @@
                 <!-- ML & AI Frameworks -->
                 <div class="reveal skill-category-card">
                     <div class="skill-category-header">
-                        <div class="skill-category-icon" style="background: rgba(124, 58, 237, 0.1);">🧠</div>
-                        <h3 class="skill-category-title" style="color: var(--secondary-light);">ML & AI Frameworks</h3>
+                        <div class="skill-category-icon" style="background: rgba(212, 175, 55, 0.1);">🧠</div>
+                        <h3 class="skill-category-title" style="color: #D4AF37;">ML & AI Frameworks</h3>
                     </div>
                     <div class="skill-tags">
                         <span class="skill-tag purple">Machine Learning</span>
@@ -329,8 +376,8 @@
                 <!-- Programming Languages -->
                 <div class="reveal skill-category-card">
                     <div class="skill-category-header">
-                        <div class="skill-category-icon" style="background: rgba(244, 114, 182, 0.1);">💻</div>
-                        <h3 class="skill-category-title" style="color: var(--accent);">Programming</h3>
+                        <div class="skill-category-icon" style="background: rgba(220, 38, 38, 0.1);">💻</div>
+                        <h3 class="skill-category-title" style="color: #F87171;">Programming</h3>
                     </div>
                     <div class="skill-tags">
                         <span class="skill-tag pink">Python</span>
@@ -343,8 +390,8 @@
                 <!-- Data Science Tools -->
                 <div class="reveal skill-category-card">
                     <div class="skill-category-header">
-                        <div class="skill-category-icon" style="background: rgba(16, 185, 129, 0.1);">📊</div>
-                        <h3 class="skill-category-title" style="color: var(--emerald);">Data Science</h3>
+                        <div class="skill-category-icon" style="background: rgba(20, 184, 166, 0.1);">📊</div>
+                        <h3 class="skill-category-title" style="color: #14B8A6;">Data Science</h3>
                     </div>
                     <div class="skill-tags">
                         <span class="skill-tag emerald">NumPy</span>
@@ -356,8 +403,8 @@
                 <!-- Deployment & Infra -->
                 <div class="reveal skill-category-card">
                     <div class="skill-category-header">
-                        <div class="skill-category-icon" style="background: rgba(245, 158, 11, 0.1);">⚡</div>
-                        <h3 class="skill-category-title" style="color: var(--amber);">Deployment & Infra</h3>
+                        <div class="skill-category-icon" style="background: rgba(194, 65, 12, 0.1);">⚡</div>
+                        <h3 class="skill-category-title" style="color: #FB923C;">Deployment & Infra</h3>
                     </div>
                     <div class="skill-tags">
                         <span class="skill-tag amber">REST APIs</span>
@@ -372,8 +419,8 @@
                 <!-- Databases -->
                 <div class="reveal skill-category-card">
                     <div class="skill-category-header">
-                        <div class="skill-category-icon" style="background: rgba(96, 165, 250, 0.1);">🗄️</div>
-                        <h3 class="skill-category-title" style="color: #60a5fa;">Databases</h3>
+                        <div class="skill-category-icon" style="background: rgba(13, 148, 136, 0.1);">🗄️</div>
+                        <h3 class="skill-category-title" style="color: #0D9488;">Databases</h3>
                     </div>
                     <div class="skill-tags">
                         <span class="skill-tag blue">ChromaDB</span>
@@ -388,8 +435,8 @@
                 <!-- Web Technologies -->
                 <div class="reveal skill-category-card">
                     <div class="skill-category-header">
-                        <div class="skill-category-icon" style="background: rgba(244, 114, 182, 0.1);">🌐</div>
-                        <h3 class="skill-category-title" style="color: #f472b6;">Web Technologies</h3>
+                        <div class="skill-category-icon" style="background: rgba(220, 38, 38, 0.1);">🌐</div>
+                        <h3 class="skill-category-title" style="color: #F87171;">Web Technologies</h3>
                     </div>
                     <div class="skill-tags">
                         <span class="skill-tag pink">TypeScript</span>
@@ -403,8 +450,8 @@
                 <!-- Tools & Core CS -->
                 <div class="reveal skill-category-card">
                     <div class="skill-category-header">
-                        <div class="skill-category-icon" style="background: rgba(16, 185, 129, 0.1);">🛠️</div>
-                        <h3 class="skill-category-title" style="color: var(--emerald);">Tools & Core CS</h3>
+                        <div class="skill-category-icon" style="background: rgba(20, 184, 166, 0.1);">🛠️</div>
+                        <h3 class="skill-category-title" style="color: #14B8A6;">Tools & Core CS</h3>
                     </div>
                     <div class="skill-tags">
                         <span class="skill-tag emerald">Git & GitHub</span>
@@ -419,6 +466,26 @@
             </div>
         </div>
     </section>
+
+    <!-- Temple Torana Arch Divider -->
+    <div class="temple-divider" aria-hidden="true">
+        <div class="temple-divider-line"></div>
+        <div class="temple-divider-motif">
+            <svg class="w-7 h-7" viewBox="0 0 40 40" fill="none">
+                <path d="M20 2L24 16L38 20L24 24L20 38L16 24L2 20L16 16L20 2Z" fill="url(#toranaGold3)" opacity="0.85"/>
+                <circle cx="20" cy="20" r="4" fill="#FBBF24"/>
+                <circle cx="20" cy="20" r="10" stroke="#D4AF37" stroke-width="0.8" stroke-dasharray="2 2"/>
+                <defs>
+                    <linearGradient id="toranaGold3" x1="2" y1="2" x2="38" y2="38" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#F59E0B"/>
+                        <stop offset="0.5" stop-color="#D4AF37"/>
+                        <stop offset="1" stop-color="#B45309"/>
+                    </linearGradient>
+                </defs>
+            </svg>
+        </div>
+        <div class="temple-divider-line"></div>
+    </div>
 
     <!-- ============================================
          PROJECTS SECTION
@@ -438,17 +505,17 @@
                 <!-- Project 1 (Featured): Nexora – RAG-Based Book Assistant -->
                 <div class="reveal project-card featured-project group md:col-span-2">
                     <div class="grid md:grid-cols-12 h-full">
-                        <div class="project-image-wrapper md:col-span-6 md:h-auto min-h-[260px] relative overflow-hidden bg-gradient-to-br from-amber-950/60 via-red-950/40 to-orange-900/50">
+                        <div class="project-image-wrapper md:col-span-6 md:h-auto min-h-[260px] relative overflow-hidden bg-gradient-to-br from-amber-950/70 via-orange-950/50 to-yellow-900/40">
                             <img src="Assets/Nexora.png" alt="Nexora – RAG-Based Book Assistant"
                                 onerror="this.style.display='none';">
                             <div class="project-overlay"></div>
                             <div class="project-tags-overlay">
                                 <span class="project-tag"
-                                    style="background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3);">Featured</span>
+                                    style="background: rgba(212, 175, 55, 0.2); color: #FBBF24; border: 1px solid rgba(212, 175, 55, 0.3);">Featured</span>
                                 <span class="project-tag"
-                                    style="background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3);">RAG System</span>
+                                    style="background: rgba(220, 38, 38, 0.2); color: #f87171; border: 1px solid rgba(220, 38, 38, 0.3);">RAG System</span>
                                 <span class="project-tag"
-                                    style="background: rgba(0, 212, 255, 0.2); color: var(--primary); border: 1px solid rgba(0, 212, 255, 0.3);">LangChain</span>
+                                    style="background: rgba(245, 158, 11, 0.2); color: #FBBF24; border: 1px solid rgba(245, 158, 11, 0.3);">LangChain</span>
                             </div>
                         </div>
                         <div class="project-body md:col-span-6 flex flex-col justify-between">
@@ -490,19 +557,19 @@
 
                 <!-- Project 2: BiasSpectra -->
                 <div class="reveal project-card group">
-                    <div class="project-image-wrapper bg-gradient-to-br from-purple-900/50 to-pink-900/50">
+                    <div class="project-image-wrapper bg-gradient-to-br from-amber-950/50 to-orange-900/40">
                         <img src="Assets/Bais_spectra.png" alt="BiasSpectra — Political Bias Detection"
                             onerror="this.style.display='none';">
                         <div class="project-overlay"></div>
                         <div class="project-tags-overlay">
                             <span class="project-tag"
-                                style="background: rgba(124, 58, 237, 0.2); color: var(--secondary-light); border: 1px solid rgba(124, 58, 237, 0.3);">NLP</span>
+                                style="background: rgba(212, 175, 55, 0.2); color: #D4AF37; border: 1px solid rgba(212, 175, 55, 0.3);">NLP</span>
                             <span class="project-tag"
-                                style="background: rgba(244, 114, 182, 0.2); color: var(--accent); border: 1px solid rgba(244, 114, 182, 0.3);">BERT</span>
+                                style="background: rgba(220, 38, 38, 0.2); color: #F87171; border: 1px solid rgba(220, 38, 38, 0.3);">BERT</span>
                         </div>
                     </div>
                     <div class="project-body">
-                        <h3 class="project-title group-hover:text-[var(--secondary-light)]">BiasSpectra</h3>
+                        <h3 class="project-title group-hover:text-[#D4AF37]">BiasSpectra</h3>
                         <p class="project-description">
                             Built an NLP-based political bias detection system for Indian news using BERT and rule-based
                             filtering, with a two-stage pipeline that screens out non-political content before classification.
@@ -518,7 +585,7 @@
                         </div>
                         <div class="project-links">
                             <a href="https://huggingface.co/spaces/dakshaditya/bias-spectra" target="_blank"
-                                class="project-link" style="color: var(--secondary-light);">
+                                class="project-link" style="color: #D4AF37;">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -539,20 +606,20 @@
 
                 <!-- Project 2: Adaptive Traffic Signal -->
                 <div class="reveal project-card group">
-                    <div class="project-image-wrapper bg-gradient-to-br from-cyan-900/50 to-blue-900/50">
+                    <div class="project-image-wrapper bg-gradient-to-br from-yellow-950/50 to-amber-900/40">
                         <img src="Assets/Traffic.png" alt="Adaptive Traffic Signal Control"
                             onerror="this.style.display='none';">
                         <div class="project-overlay"></div>
                         <div class="project-tags-overlay">
                             <span class="project-tag"
-                                style="background: rgba(0, 212, 255, 0.2); color: var(--primary); border: 1px solid rgba(0, 212, 255, 0.3);">Computer
+                                style="background: rgba(245, 158, 11, 0.2); color: #FBBF24; border: 1px solid rgba(245, 158, 11, 0.3);">Computer
                                 Vision</span>
                             <span class="project-tag"
-                                style="background: rgba(96, 165, 250, 0.2); color: #60a5fa; border: 1px solid rgba(96, 165, 250, 0.3);">YOLO</span>
+                                style="background: rgba(13, 148, 136, 0.2); color: #14B8A6; border: 1px solid rgba(13, 148, 136, 0.3);">YOLO</span>
                         </div>
                     </div>
                     <div class="project-body">
-                        <h3 class="project-title group-hover:text-[var(--primary)]">Adaptive Traffic Signal Control</h3>
+                        <h3 class="project-title group-hover:text-[#FBBF24]">Adaptive Traffic Signal Control</h3>
                         <p class="project-description">
                             Developed a real-time vehicle detection system using YOLOv11, achieving <strong>92% detection accuracy</strong>
                             across 4 vehicle classes. Simulated adaptive traffic signal control in SUMO for congestion reduction
@@ -580,19 +647,19 @@
 
                 <!-- Project 3: Daily Expense Tracker -->
                 <div class="reveal project-card group">
-                    <div class="project-image-wrapper bg-gradient-to-br from-green-900/50 to-emerald-900/50">
+                    <div class="project-image-wrapper bg-gradient-to-br from-teal-950/50 to-emerald-900/40">
                         <img src="Assets/Expense.png" alt="Daily Expense Tracker"
                             onerror="this.style.display='none';">
                         <div class="project-overlay"></div>
                         <div class="project-tags-overlay">
                             <span class="project-tag"
-                                style="background: rgba(16, 185, 129, 0.2); color: var(--emerald); border: 1px solid rgba(16, 185, 129, 0.3);">React</span>
+                                style="background: rgba(13, 148, 136, 0.2); color: #0D9488; border: 1px solid rgba(13, 148, 136, 0.3);">React</span>
                             <span class="project-tag"
-                                style="background: rgba(52, 211, 153, 0.2); color: #34d399; border: 1px solid rgba(52, 211, 153, 0.3);">TypeScript</span>
+                                style="background: rgba(20, 184, 166, 0.2); color: #14B8A6; border: 1px solid rgba(20, 184, 166, 0.3);">TypeScript</span>
                         </div>
                     </div>
                     <div class="project-body">
-                        <h3 class="project-title group-hover:text-[var(--emerald)]">Daily Expense Tracker</h3>
+                        <h3 class="project-title group-hover:text-[#0D9488]">Daily Expense Tracker</h3>
                         <p class="project-description">
                             A local expense tracking application enabling users to manage daily finances efficiently.
                             Built with React and TypeScript for clean architecture and type safety.
@@ -604,7 +671,7 @@
                         </div>
                         <div class="project-links">
                             <a href="https://xpensetracker-one.vercel.app/" target="_blank"
-                                class="project-link" style="color: var(--emerald);">
+                                class="project-link" style="color: #0D9488;">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -625,19 +692,19 @@
 
                 <!-- Project 4: Secure-JWT-Refresher -->
                 <div class="reveal project-card group">
-                    <div class="project-image-wrapper bg-gradient-to-br from-indigo-900/50 to-blue-900/50">
+                    <div class="project-image-wrapper bg-gradient-to-br from-stone-900/50 to-amber-950/40">
                         <img src="Assets/Jwt.png" alt="Secure JWT Refresher"
                             onerror="this.style.display='none';">
                         <div class="project-overlay"></div>
                         <div class="project-tags-overlay">
                             <span class="project-tag"
-                                style="background: rgba(99, 102, 241, 0.2); color: #818cf8; border: 1px solid rgba(99, 102, 241, 0.3);">Backend</span>
+                                style="background: rgba(212, 175, 55, 0.2); color: #D4AF37; border: 1px solid rgba(212, 175, 55, 0.3);">Backend</span>
                             <span class="project-tag"
-                                style="background: rgba(96, 165, 250, 0.2); color: #60a5fa; border: 1px solid rgba(96, 165, 250, 0.3);">Auth</span>
+                                style="background: rgba(194, 65, 12, 0.2); color: #FB923C; border: 1px solid rgba(194, 65, 12, 0.3);">Auth</span>
                         </div>
                     </div>
                     <div class="project-body">
-                        <h3 class="project-title group-hover:text-[#818cf8]">Secure-JWT-Refresher</h3>
+                        <h3 class="project-title group-hover:text-[#D4AF37]">Secure-JWT-Refresher</h3>
                         <p class="project-description">
                             A secure authentication system with JWTs, Silent Refresh Tokens, and automatic
                             session management. Built using .NET 8 backend and React frontend.
@@ -676,10 +743,30 @@
         </div>
     </section>
 
+    <!-- Temple Torana Arch Divider -->
+    <div class="temple-divider" aria-hidden="true">
+        <div class="temple-divider-line"></div>
+        <div class="temple-divider-motif">
+            <svg class="w-7 h-7" viewBox="0 0 40 40" fill="none">
+                <path d="M20 2L24 16L38 20L24 24L20 38L16 24L2 20L16 16L20 2Z" fill="url(#toranaGold4)" opacity="0.85"/>
+                <circle cx="20" cy="20" r="4" fill="#FBBF24"/>
+                <circle cx="20" cy="20" r="10" stroke="#D4AF37" stroke-width="0.8" stroke-dasharray="2 2"/>
+                <defs>
+                    <linearGradient id="toranaGold4" x1="2" y1="2" x2="38" y2="38" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#F59E0B"/>
+                        <stop offset="0.5" stop-color="#D4AF37"/>
+                        <stop offset="1" stop-color="#B45309"/>
+                    </linearGradient>
+                </defs>
+            </svg>
+        </div>
+        <div class="temple-divider-line"></div>
+    </div>
+
     <!-- ============================================
          EXPERIENCE & EDUCATION SECTION
          ============================================ -->
-    <section id="experience" class="py-28 px-6 relative" style="background: var(--dark);">
+    <section id="experience" class="py-28 px-6 relative temple-section-veil">
         <div class="max-w-7xl mx-auto">
             <div class="reveal text-center mb-16">
                 <div class="section-badge mx-auto w-fit">Career</div>
@@ -691,7 +778,7 @@
             <!-- Work Experience -->
             <div class="mb-16">
                 <div class="reveal">
-                    <div class="timeline-section-label" style="color: var(--emerald);">
+                    <div class="timeline-section-label" style="color: #0D9488;">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -735,7 +822,7 @@
                 <!-- Education -->
                 <div>
                     <div class="reveal">
-                        <div class="timeline-section-label" style="color: var(--primary);">
+                        <div class="timeline-section-label" style="color: #D4AF37;">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M12 14l9-5-9-5-9 5 9 5z" />
@@ -761,7 +848,7 @@
                 <!-- Certifications -->
                 <div>
                     <div class="reveal">
-                        <div class="timeline-section-label" style="color: var(--secondary-light);">
+                        <div class="timeline-section-label" style="color: #F3C64C;">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
@@ -772,42 +859,42 @@
 
                     <div class="space-y-4">
                         <div class="reveal cert-card">
-                            <div class="cert-icon" style="background: rgba(244, 114, 182, 0.1);">☕</div>
+                            <div class="cert-icon" style="background: rgba(220, 38, 38, 0.1);">☕</div>
                             <div>
                                 <h4 class="cert-title">Java Programming Certification</h4>
-                                <p class="cert-issuer" style="color: var(--accent);">Soft Pro</p>
+                                <p class="cert-issuer" style="color: #F87171;">Soft Pro</p>
                             </div>
                         </div>
 
                         <div class="reveal cert-card">
-                            <div class="cert-icon" style="background: rgba(245, 158, 11, 0.1);">🎯</div>
+                            <div class="cert-icon" style="background: rgba(194, 65, 12, 0.1);">🎯</div>
                             <div>
                                 <h4 class="cert-title">ML Training Certification</h4>
-                                <p class="cert-issuer" style="color: var(--amber);">GI Ventures (NVIDIA Partner)</p>
+                                <p class="cert-issuer" style="color: #FB923C;">GI Ventures (NVIDIA Partner)</p>
                             </div>
                         </div>
 
                         <div class="reveal cert-card">
-                            <div class="cert-icon" style="background: rgba(96, 165, 250, 0.1);">🏆</div>
+                            <div class="cert-icon" style="background: rgba(13, 148, 136, 0.1);">🏆</div>
                             <div>
                                 <h4 class="cert-title">TCS CodeVita 2024</h4>
-                                <p class="cert-issuer" style="color: #60a5fa;">TCS — Global Coding Contest</p>
+                                <p class="cert-issuer" style="color: #0D9488;">TCS — Global Coding Contest</p>
                             </div>
                         </div>
 
                         <div class="reveal cert-card">
-                            <div class="cert-icon" style="background: rgba(16, 185, 129, 0.1);">🐍</div>
+                            <div class="cert-icon" style="background: rgba(20, 184, 166, 0.1);">🐍</div>
                             <div>
                                 <h4 class="cert-title">Python for ML & Data Science</h4>
-                                <p class="cert-issuer" style="color: var(--emerald);">Online Certification</p>
+                                <p class="cert-issuer" style="color: #14B8A6;">Online Certification</p>
                             </div>
                         </div>
 
                         <div class="reveal cert-card">
-                            <div class="cert-icon" style="background: rgba(124, 58, 237, 0.1);">🧠</div>
+                            <div class="cert-icon" style="background: rgba(212, 175, 55, 0.1);">🧠</div>
                             <div>
                                 <h4 class="cert-title">AI & Deep Learning</h4>
-                                <p class="cert-issuer" style="color: var(--secondary-light);">Academic Training</p>
+                                <p class="cert-issuer" style="color: #D4AF37;">Academic Training</p>
                             </div>
                         </div>
                     </div>
@@ -815,6 +902,26 @@
             </div>
         </div>
     </section>
+
+    <!-- Temple Torana Arch Divider -->
+    <div class="temple-divider" aria-hidden="true">
+        <div class="temple-divider-line"></div>
+        <div class="temple-divider-motif">
+            <svg class="w-7 h-7" viewBox="0 0 40 40" fill="none">
+                <path d="M20 2L24 16L38 20L24 24L20 38L16 24L2 20L16 16L20 2Z" fill="url(#toranaGold5)" opacity="0.85"/>
+                <circle cx="20" cy="20" r="4" fill="#FBBF24"/>
+                <circle cx="20" cy="20" r="10" stroke="#D4AF37" stroke-width="0.8" stroke-dasharray="2 2"/>
+                <defs>
+                    <linearGradient id="toranaGold5" x1="2" y1="2" x2="38" y2="38" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#F59E0B"/>
+                        <stop offset="0.5" stop-color="#D4AF37"/>
+                        <stop offset="1" stop-color="#B45309"/>
+                    </linearGradient>
+                </defs>
+            </svg>
+        </div>
+        <div class="temple-divider-line"></div>
+    </div>
 
     <!-- ============================================
          CONTACT SECTION
@@ -830,8 +937,8 @@
             </div>
 
             <div class="reveal contact-form-wrapper">
-                <div class="glow-orb cyan"></div>
-                <div class="glow-orb purple"></div>
+                <div class="glow-orb gold"></div>
+                <div class="glow-orb saffron"></div>
 
                 <form id="contact-form" class="relative space-y-6" onsubmit="handleSubmit(event)">
                     <div class="grid md:grid-cols-2 gap-6">
@@ -898,7 +1005,7 @@
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-text">
-                © 2025 Aditya Daksh. Built with 💙
+                © 2025 Aditya Daksh. Built with 🪔
             </div>
             <div class="footer-links">
                 <a href="https://github.com/Adityahatake" target="_blank" class="footer-link">GitHub</a>
