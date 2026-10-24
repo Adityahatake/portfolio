@@ -14,7 +14,13 @@
     <meta property="og:description"
         content="AI Engineer specializing in Generative AI, Agentic AI, and LLM-based applications.">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aditya-portfolio567.netlify.app/">
+    <meta property="og:image" content="https://aditya-portfolio567.netlify.app/Assets/Nexora.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://aditya-portfolio567.netlify.app/">
     <meta name="robots" content="index, follow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -26,7 +32,8 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 
-<body class="antialiased">   
+<body class="antialiased">
+    <a href="#about" class="skip-link">Skip to content</a>
 
     <!-- Cinematic Temple Sanctum Backdrop -->
     <div class="temple-backdrop-container" aria-hidden="true">
@@ -79,7 +86,7 @@
             </div>
 
             <button class="md:hidden text-white" onclick="toggleMobileMenu()" id="mobileMenuBtn"
-                aria-label="Toggle menu">
+                aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileMenu">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M4 6h16M4 12h16M4 18h16" />
@@ -506,7 +513,7 @@
                 <div class="reveal project-card featured-project group md:col-span-2">
                     <div class="grid md:grid-cols-12 h-full">
                         <div class="project-image-wrapper md:col-span-6 md:h-auto min-h-[260px] relative overflow-hidden bg-gradient-to-br from-amber-950/70 via-orange-950/50 to-yellow-900/40">
-                            <img src="Assets/Nexora.png" alt="Nexora – RAG-Based Book Assistant"
+                            <img loading="lazy" decoding="async" src="Assets/Nexora.png" alt="Nexora – RAG-Based Book Assistant"
                                 onerror="this.style.display='none';">
                             <div class="project-overlay"></div>
                             <div class="project-tags-overlay">
@@ -558,7 +565,7 @@
                 <!-- Project 2: BiasSpectra -->
                 <div class="reveal project-card group">
                     <div class="project-image-wrapper bg-gradient-to-br from-amber-950/50 to-orange-900/40">
-                        <img src="Assets/Bais_spectra.png" alt="BiasSpectra — Political Bias Detection"
+                        <img loading="lazy" decoding="async" src="Assets/Bais_spectra.png" alt="BiasSpectra — Political Bias Detection"
                             onerror="this.style.display='none';">
                         <div class="project-overlay"></div>
                         <div class="project-tags-overlay">
@@ -607,7 +614,7 @@
                 <!-- Project 2: Adaptive Traffic Signal -->
                 <div class="reveal project-card group">
                     <div class="project-image-wrapper bg-gradient-to-br from-yellow-950/50 to-amber-900/40">
-                        <img src="Assets/Traffic.png" alt="Adaptive Traffic Signal Control"
+                        <img loading="lazy" decoding="async" src="Assets/Traffic.png" alt="Adaptive Traffic Signal Control"
                             onerror="this.style.display='none';">
                         <div class="project-overlay"></div>
                         <div class="project-tags-overlay">
@@ -648,7 +655,7 @@
                 <!-- Project 3: Daily Expense Tracker -->
                 <div class="reveal project-card group">
                     <div class="project-image-wrapper bg-gradient-to-br from-teal-950/50 to-emerald-900/40">
-                        <img src="Assets/Expense.png" alt="Daily Expense Tracker"
+                        <img loading="lazy" decoding="async" src="Assets/Expense.png" alt="Daily Expense Tracker"
                             onerror="this.style.display='none';">
                         <div class="project-overlay"></div>
                         <div class="project-tags-overlay">
@@ -693,7 +700,7 @@
                 <!-- Project 4: Secure-JWT-Refresher -->
                 <div class="reveal project-card group">
                     <div class="project-image-wrapper bg-gradient-to-br from-stone-900/50 to-amber-950/40">
-                        <img src="Assets/Jwt.png" alt="Secure JWT Refresher"
+                        <img loading="lazy" decoding="async" src="Assets/Jwt.png" alt="Secure JWT Refresher"
                             onerror="this.style.display='none';">
                         <div class="project-overlay"></div>
                         <div class="project-tags-overlay">
@@ -940,7 +947,7 @@
                 <div class="glow-orb gold"></div>
                 <div class="glow-orb saffron"></div>
 
-                <form id="contact-form" class="relative space-y-6" onsubmit="handleSubmit(event)">
+                <form id="contact-form" class="relative space-y-6" onsubmit="handleSubmit(event)" novalidate>
                     <div class="grid md:grid-cols-2 gap-6">
                         <div>
                             <label class="contact-label" for="contact-name">Name</label>
@@ -969,6 +976,7 @@
                     <button type="submit" class="contact-submit" id="contact-submit-btn">
                         Send Message 🚀
                     </button>
+                    <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
                 </form>
 
                 <div class="contact-info-bar">

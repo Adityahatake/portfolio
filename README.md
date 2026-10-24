@@ -1,56 +1,38 @@
-# 🌐 Personal Portfolio
-Welcome to my personal portfolio website!
-This site showcases my projects, skills, and work as a developer.
+# 🌐 Aditya Daksh — AI Engineer Portfolio
+
+A temple-themed personal portfolio showcasing my projects, skills, and experience in Generative AI, Agentic AI and LLM applications.
 
 ## 🚀 Live Demo
 
-👉 [View Portfolio](https://aditya-portfolio567.netlify.app/)
+👉 **[aditya-portfolio567.netlify.app](https://aditya-portfolio567.netlify.app/)**
 
-## 📌 About
+## ✨ Features
 
-This portfolio highlights:
-
-* My development projects
-* Skills and technologies I use
-* Contact information
-
-## 🛠️ Built With
-
-* HTML
-* CSS
-* JavaScript
-
-## 📬 Contact
-
-Feel free to connect or reach out through the portfolio website.
-
----
-
-⭐ If you like it, consider giving it a star or sharing feedback!
-=======
-# My Portfolio
-
-A personal portfolio website showcasing my projects and skills.
-
-## 🚀 Live Demo
-
-Visit the live website: **[https://aditya-portfolio567.netlify.app/](https://aditya-portfolio567.netlify.app/)**
+- Three.js hero scene, canvas neural-network background, GSAP animations
+- Scroll-reveal sections, 3D tilt cards, typing role effect
+- Contact form via EmailJS with validation, inline status and spam cooldown
+- Accessible: skip link, keyboard focus styles, `aria-expanded` menu, reduced-motion support
+- Animations pause when the tab is hidden or the hero is offscreen
 
 ## 📁 Project Structure
 
-- `index.html` - Main HTML file
-- `styles.css` - Styling for the portfolio
-- `script.js` - JavaScript functionality
-- `Assets/` - Images and other media files
-- `notes.txt` - Additional notes
+- `index.html` — page markup
+- `styles.css` — styling and design tokens
+- `script.js` — interactions (all tunables live in the `CONFIG` object at the top)
+- `Assets/` — images and media
 
-## 🛠️ Technologies Used
+## 🛠️ Built With
 
-- HTML5
-- CSS3
-- JavaScript
+HTML5, CSS3, JavaScript, Tailwind CSS (CDN), Three.js, GSAP, EmailJS
+
+## 🔧 Running Locally
+
+Open `index.html` in a browser, or serve the folder with any static server (e.g. `npx serve`).
+
+## 📬 Contact
+
+Use the contact form on the live site.
 
 ## 📝 License
 
 Feel free to use this project as inspiration for your own portfolio!
-
