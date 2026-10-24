@@ -10,8 +10,9 @@ const CONFIG = {
         templateId: 'template_ee9i7hl'
     },
     form: { cooldownMs: 30000, minMessageLength: 10 },
-    neural: { particleCount: 70, connectionDistance: 140 },
-    binaryRain: { intervalMs: 120, maxDrops: 40, lifetimeMs: 5000 },
+    // Kept sparse and faint so the hero relic stays the focal point
+    neural: { particleCount: window.innerWidth < 768 ? 22 : 42, connectionDistance: 120 },
+    binaryRain: { intervalMs: 160, maxDrops: 24, lifetimeMs: 5000 },
     trail: { chance: 0.08, maxParticles: 25 },
     typing: { typeSpeed: 80, deleteSpeed: 40, holdMs: 2200, pauseMs: 400 },
     flowerMs: 800
@@ -137,7 +138,7 @@ class Particle {
     draw() {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(0, 212, 255, 0.45)';
+        ctx.fillStyle = 'rgba(229, 181, 46, 0.32)';
         ctx.fill();
     }
 }
@@ -163,7 +164,7 @@ function animateParticles() {
                 ctx.beginPath();
                 ctx.moveTo(p.x, p.y);
                 ctx.lineTo(p2.x, p2.y);
-                ctx.strokeStyle = `rgba(0, 212, 255, ${0.15 * (1 - dist / maxDist)})`;
+                ctx.strokeStyle = `rgba(229, 181, 46, ${0.07 * (1 - dist / maxDist)})`;
                 ctx.lineWidth = 0.8;
                 ctx.stroke();
             }
@@ -194,87 +195,7 @@ if (canvas && ctx) {
     }
 }
 
-// ---------------------------------------------------------------
-// 3D Hero Scene with Three.js (responsive, pauses offscreen / hidden)
-// ---------------------------------------------------------------
-const heroContainer = document.getElementById('hero-3d-container');
-let setHeroRunning = () => {};
-
-if (heroContainer && typeof THREE !== 'undefined') {
-    try {
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-        heroContainer.appendChild(renderer.domElement);
-
-        const resizeHero = () => {
-            const size = Math.max(Math.min(heroContainer.clientWidth || 600, 600), 200);
-            renderer.setSize(size, size);
-            camera.aspect = 1;
-            camera.updateProjectionMatrix();
-        };
-        resizeHero();
-        window.addEventListener('resize', resizeHero);
-
-        const geometries = [
-            new THREE.IcosahedronGeometry(2, 0),
-            new THREE.OctahedronGeometry(1.5, 0),
-            new THREE.TetrahedronGeometry(1.8, 0)
-        ];
-        const colors = [0x00d4ff, 0x7c3aed, 0xf472b6];
-        const meshes = geometries.map((geo, i) => {
-            const mat = new THREE.MeshBasicMaterial({ color: colors[i], wireframe: true, transparent: true, opacity: 0.25 });
-            const mesh = new THREE.Mesh(geo, mat);
-            mesh.position.set((Math.random() - 0.5) * 10, (Math.random() - 0.5) * 10, (Math.random() - 0.5) * 5);
-            mesh.rotation.set(Math.random() * Math.PI, Math.random() * Math.PI, 0);
-            scene.add(mesh);
-            return mesh;
-        });
-        camera.position.z = 8;
-
-        let mouseX = 0, mouseY = 0;
-        document.addEventListener('mousemove', (e) => {
-            mouseX = (e.clientX / window.innerWidth) * 2 - 1;
-            mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
-        });
-
-        let heroRunning = false;
-        const animate3D = () => {
-            if (!heroRunning) return;
-            requestAnimationFrame(animate3D);
-            const t = Date.now() * 0.001;
-            meshes.forEach((mesh, i) => {
-                mesh.rotation.x += 0.004 * (i + 1);
-                mesh.rotation.y += 0.004 * (i + 1);
-                mesh.position.y += Math.sin(t + i) * 0.008;
-            });
-            camera.position.x += (mouseX * 2 - camera.position.x) * 0.05;
-            camera.position.y += (mouseY * 2 - camera.position.y) * 0.05;
-            camera.lookAt(scene.position);
-            renderer.render(scene, camera);
-        };
-        setHeroRunning = (run) => {
-            if (run === heroRunning) return;
-            heroRunning = run;
-            if (run) animate3D();
-        };
-
-        if (prefersReducedMotion) {
-            renderer.render(scene, camera);
-        } else {
-            let inView = true;
-            new IntersectionObserver(([entry]) => {
-                inView = entry.isIntersecting;
-                setHeroRunning(inView && !document.hidden);
-            }).observe(heroContainer);
-            document.addEventListener('visibilitychange', () => setHeroRunning(inView && !document.hidden));
-            setHeroRunning(true);
-        }
-    } catch (err) {
-        console.warn('3D hero scene disabled:', err);
-    }
-}
+// The hero 3D centerpiece ("The Golden Relic") lives in relic.js
 
 // Pause background animations while the tab is hidden
 document.addEventListener('visibilitychange', () => {
