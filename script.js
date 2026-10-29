@@ -10,7 +10,7 @@ const CONFIG = {
         templateId: 'template_ee9i7hl'
     },
     form: { cooldownMs: 30000, minMessageLength: 10 },
-    // Kept sparse and faint so the hero relic stays the focal point
+    // Kept sparse and faint so the hero city stays the focal point
     neural: { particleCount: window.innerWidth < 768 ? 22 : 42, connectionDistance: 120 },
     binaryRain: { intervalMs: 160, maxDrops: 24, lifetimeMs: 5000 },
     trail: { chance: 0.08, maxParticles: 25 },
@@ -195,7 +195,7 @@ if (canvas && ctx) {
     }
 }
 
-// The hero 3D centerpiece ("The Golden Relic") lives in relic.js
+// The hero 3D centerpiece ("The Golden City") lives in hero-city.js
 
 // Pause background animations while the tab is hidden
 document.addEventListener('visibilitychange', () => {
@@ -207,10 +207,10 @@ document.addEventListener('visibilitychange', () => {
 // ---------------------------------------------------------------
 const typingText = document.getElementById('typingText');
 const texts = [
-    'AI Engineer',
+    'AI/ML Engineer',
     'Generative AI Developer',
-    'Agentic AI Builder',
     'LLM Applications',
+    'RAG Systems',
     'Computer Vision Expert',
     'NLP Specialist'
 ];

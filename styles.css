@@ -1696,8 +1696,8 @@ section {
     min-width: 0;
 }
 
-/* The Golden Relic stage (rendered by relic.js) */
-.hero-relic-wrap {
+/* The Golden City stage (rendered by hero-city.js) */
+.hero-city-wrap {
     width: 100%;
     min-width: 0;
 }
@@ -1711,9 +1711,9 @@ section {
     background: transparent;
 }
 
-/* Let the relic bleed slightly past its column on wide screens */
+/* Let the city bleed slightly past its column on wide screens */
 @media (min-width: 1024px) {
-    #hero .hero-relic-wrap {
+    #hero .hero-city-wrap {
         justify-content: flex-start;
     }
 
@@ -1743,11 +1743,11 @@ section {
     transform: translateY(18px);
     transition: opacity 1.8s ease, transform 2.2s cubic-bezier(0.22, 1, 0.36, 1);
     /* Feather the edges into the backdrop so no box edge is ever visible */
-    -webkit-mask-image: radial-gradient(ellipse 50% 50% at center, #000 72%, transparent 100%);
-    mask-image: radial-gradient(ellipse 50% 50% at center, #000 72%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 50% 50% at center, #000 78%, transparent 100%);
+    mask-image: radial-gradient(ellipse 50% 50% at center, #000 78%, transparent 100%);
 }
 
-#hero-3d-container.relic-ready canvas {
+#hero-3d-container.city-ready canvas {
     opacity: 1;
     transform: none;
 }
@@ -1766,37 +1766,19 @@ section {
     z-index: 0;
 }
 
-/* Static relic when WebGL is unavailable */
-.relic-fallback-art {
+/* Static city when WebGL is unavailable */
+.city-fallback-art {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: min(380px, 70vw);
-    aspect-ratio: 1;
+    width: min(400px, 78vw);
     transform: translate(-50%, -50%);
 }
 
-.relic-fallback-art span {
-    position: absolute;
-    inset: 0;
-    border-radius: 50%;
-    border: 3px solid #B88624;
-    box-shadow: 0 0 18px rgba(229, 181, 46, 0.25), inset 0 0 12px rgba(229, 181, 46, 0.15);
-}
-
-.relic-fallback-art span:nth-child(1) { transform: rotateX(68deg) rotateZ(10deg); }
-.relic-fallback-art span:nth-child(2) { inset: 8%; border-color: #E5B52E; transform: rotateY(62deg); }
-.relic-fallback-art span:nth-child(3) { inset: 16%; transform: rotateX(30deg) rotateY(-40deg); }
-
-.relic-fallback-art i {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 22%;
-    aspect-ratio: 1;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    background: radial-gradient(circle, #ffd28a 0%, #D97916 45%, rgba(217, 121, 22, 0) 72%);
+.city-fallback-art svg {
+    display: block;
+    width: 100%;
+    height: auto;
 }
 
 @media (prefers-reduced-motion: reduce) {
